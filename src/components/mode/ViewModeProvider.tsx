@@ -9,6 +9,7 @@ import {
   useMemo,
   useState,
 } from "react";
+import { trackPortfolioEvent } from "@/lib/analytics";
 
 export type ViewMode = "explorer" | "recruiter";
 
@@ -41,27 +42,44 @@ export function ViewModeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.body.dataset.viewMode = mode;
     sessionStorage.setItem(MODE_KEY, mode);
-    window.scrollTo({ top: 0, behavior: mode === "recruiter" ? "auto" : "smooth" });
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: mode === "recruiter" ? "auto" : "instant" });
+    });
   }, [mode]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key.toLowerCase() !== "r" || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.repeat) return;
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA") return;
       e.preventDefault();
-      setModeState((m) => (m === "explorer" ? "recruiter" : "explorer"));
+      setModeState((current) => {
+        const next = current === "explorer" ? "recruiter" : "explorer";
+        trackPortfolioEvent("view_mode_changed", { mode: next, source: "r_key" });
+        return next;
+      });
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const setMode = useCallback((next: ViewMode) => setModeState(next), []);
+  const setMode = useCallback((next: ViewMode) => {
+    setModeState((current) => {
+      if (current !== next) {
+        trackPortfolioEvent("view_mode_changed", { mode: next, source: "toggle" });
+      }
+      return next;
+    });
+  }, []);
 
-  const toggleMode = useCallback(
-    () => setModeState((m) => (m === "explorer" ? "recruiter" : "explorer")),
-    []
-  );
+  const toggleMode = useCallback(() => {
+    setModeState((current) => {
+      const next = current === "explorer" ? "recruiter" : "explorer";
+      trackPortfolioEvent("view_mode_changed", { mode: next, source: "toggle" });
+      return next;
+    });
+  }, []);
 
   const value = useMemo(
     () => ({ mode, setMode, toggleMode }),

@@ -14,6 +14,7 @@ import { RecruiterBrief } from "@/components/recruiter/RecruiterBrief";
 import { useViewMode } from "@/components/mode/ViewModeProvider";
 
 const LOADED_KEY = "portfolio-loaded";
+const MODE_EASE = [0.21, 0.47, 0.32, 0.98] as const;
 
 function ExplorerView() {
   return (
@@ -53,29 +54,31 @@ export function HomeClient() {
     <>
       {showLoader && <LoadingScreen onDone={handleLoaded} />}
       {ready && (
-        <AnimatePresence mode="wait">
-          {mode === "recruiter" ? (
-            <motion.div
-              key="recruiter"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
-            >
-              <RecruiterBrief />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="explorer"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.35 }}
-            >
-              <ExplorerView />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div className="mode-viewport grid [&>*]:col-start-1 [&>*]:row-start-1 [&>*]:w-full">
+          <AnimatePresence initial={false}>
+            {mode === "recruiter" ? (
+              <motion.div
+                key="recruiter"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2, ease: MODE_EASE }}
+              >
+                <RecruiterBrief />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="explorer"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2, ease: MODE_EASE }}
+              >
+                <ExplorerView />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       )}
     </>
   );

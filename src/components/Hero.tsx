@@ -49,7 +49,7 @@ export function Hero() {
               <a href="#experience" className="btn-primary">
                 pick a question
               </a>
-              <ResumeDownload />
+              <ResumeDownload source="hero" />
               <a
                 href={siteConfig.github}
                 target="_blank"

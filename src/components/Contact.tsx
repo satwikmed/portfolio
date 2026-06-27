@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { InquiryStream } from "./inquiry/InquiryStream";
 import type { InquiryItem } from "./inquiry/InquiryProvider";
 import { contactInquiries, siteConfig } from "@/lib/data";
+import { trackPortfolioEvent } from "@/lib/analytics";
 import { BottomConfetti } from "./BottomConfetti";
 import { ResumeDownload } from "./ResumeDownload";
 
@@ -17,10 +18,11 @@ function ContactDetail({ blurb }: { blurb: string }) {
         <a
           href={`mailto:${siteConfig.email}`}
           className="btn-primary inline-block text-sm"
+          onClick={() => trackPortfolioEvent("contact_email", { source: "contact_drawer" })}
         >
           email me
         </a>
-        <ResumeDownload className="btn-secondary inline-block text-sm">
+        <ResumeDownload className="btn-secondary inline-block text-sm" source="contact_drawer">
           download resume
         </ResumeDownload>
       </div>

@@ -10,6 +10,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { trackPortfolioEvent } from "@/lib/analytics";
 import { InquiryDrawer } from "./InquiryDrawer";
 
 export type InquiryMeta = {
@@ -62,6 +63,7 @@ export function InquiryProvider({ children }: { children: ReactNode }) {
 
   const open = useCallback((id: string) => {
     setActiveId(id);
+    trackPortfolioEvent("inquiry_opened", { id });
     window.history.replaceState(null, "", `#${id}`);
     requestAnimationFrame(() => {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "center" });

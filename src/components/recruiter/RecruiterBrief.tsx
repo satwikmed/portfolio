@@ -11,6 +11,7 @@ import {
   siteConfig,
   stats,
 } from "@/lib/data";
+import { trackPortfolioEvent } from "@/lib/analytics";
 import { ResumeDownload } from "../ResumeDownload";
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
@@ -86,6 +87,7 @@ function CopyBlurb() {
 
   const copy = async () => {
     await navigator.clipboard.writeText(recruiterMemo.forwardBlurb);
+    trackPortfolioEvent("copy_blurb");
     setCopied(true);
     window.setTimeout(() => setCopied(false), 2000);
   };
@@ -305,10 +307,17 @@ export function RecruiterBrief() {
                     key="email"
                     href={`mailto:${siteConfig.email}`}
                     className="btn-primary text-sm"
+                    onClick={() =>
+                      trackPortfolioEvent("contact_email", { source: "recruiter_memo" })
+                    }
                   >
                     email me
                   </a>,
-                  <ResumeDownload key="resume" className="btn-secondary text-sm">
+                  <ResumeDownload
+                    key="resume"
+                    className="btn-secondary text-sm"
+                    source="recruiter_memo"
+                  >
                     download resume
                   </ResumeDownload>,
                   <MemoLink key="linkedin" href={siteConfig.linkedin}>

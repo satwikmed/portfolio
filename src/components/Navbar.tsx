@@ -35,7 +35,10 @@ export function Navbar() {
               <a href="#work" className="nav-link hidden sm:inline">
                 my work
               </a>
-              <ResumeDownload className="nav-link hidden border-0 bg-transparent p-0 shadow-none hover:opacity-70 sm:inline">
+              <ResumeDownload
+                className="nav-link hidden border-0 bg-transparent p-0 shadow-none hover:opacity-70 sm:inline"
+                source="navbar"
+              >
                 resume
               </ResumeDownload>
               <a href="#contact" className="nav-link hidden sm:inline">
