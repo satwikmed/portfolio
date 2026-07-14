@@ -18,11 +18,11 @@ export const siteConfig = {
     filename: "Resume.pdf",
   },
   summary:
-    "MS Business Analytics graduate with 3 internships shipping production systems. Four deployed platforms with live URLs. Built NLP pipelines, ML forecasting systems, and multi agent AI products across finance, voice, and sports analytics.",
+    "MS Business Analytics graduate with 3 internships shipping production systems. Five deployed platforms with live URLs. Built reliability ML, multi agent AI products, NLP pipelines, and forecasting systems across silicon, finance, voice, and sports analytics.",
 };
 
 export const stats = [
-  { label: "Projects Online", value: "4/4", status: "online" as const },
+  { label: "Projects Online", value: "5/5", status: "online" as const },
   { label: "Internships", value: "3", status: "online" as const },
   { label: "Records Processed", value: "100K+", status: "online" as const },
   { label: "Agents Deployed", value: "6", status: "online" as const },
@@ -46,6 +46,26 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "silicon-sentinel",
+    name: "SiliconSentinel",
+    question: "Can you catch a GPU failure thirty days before it takes a rack offline?",
+    description:
+      "Fleet reliability intelligence for semiconductor hardware. Physics-grounded failure simulation across 12 global sites, survival models, XGBoost remaining-life scoring, and an LLM analyst that verifies every numeric claim.",
+    highlights: [
+      "83% recall at 80% precision on 30-day failure risk",
+      "Arrhenius / Black / Peck / Coffin–Manson physics simulator",
+      "Ops console with decision queue, war room, and SHAP deep dives",
+    ],
+    discipline: ["ML", "Data Science", "AI Engineering"],
+    stack: ["Python", "XGBoost", "lifelines", "Next.js", "Pydantic AI"],
+    url: "https://silicon-sentinel.vercel.app",
+    github: "https://github.com/satwikmed/silicon-sentinel",
+    featured: true,
+    span: "wide",
+    accent: "#0b6e74",
+    screenshot: "/projects/silicon-sentinel.png",
+  },
+  {
     id: "diligence-ai",
     name: "Diligence AI",
     question: "What if a junior analyst's first pass on a 10-K took minutes, not days?",
@@ -61,7 +81,6 @@ export const projects: Project[] = [
     url: "https://diligence-ai-nine.vercel.app",
     github: "https://github.com/satwikmed/diligence-ai",
     featured: true,
-    span: "wide",
     accent: "#1e3a5f",
     screenshot: "/projects/diligence-ai-nine.png",
   },
@@ -383,7 +402,7 @@ export const contactInquiries: ContactInquiry[] = [
     title: "Let's talk",
     meta: "Open to opportunities",
     blurb:
-      "If you are hiring for data analytics, AI/ML engineering, or business analytics, I want to hear about it. Four platforms live, three internships shipped, and I respond fast.",
+      "If you are hiring for data analytics, AI/ML engineering, or business analytics, I want to hear about it. Five platforms live, three internships shipped, and I respond fast.",
   },
 ];
 
@@ -398,12 +417,18 @@ export const recruiterMemo = {
   preface:
     "You made it to Recruiter Mode. Either someone forwarded you here, you pressed R on purpose, or the floating hire satwik text worked. This is the sane half. The other half is doing something weirder on purpose.",
   forwardBlurb:
-    "Satwik Medipalli is an MS Business Analytics graduate (UT Dallas, May 2026) with 3 shipped internships and 4 live AI/analytics products. Strong in multi agent systems, ML pipelines, and dashboards. Open to data analytics, AI/ML engineering, and business analytics roles. Responds fast.",
+    "Satwik Medipalli is an MS Business Analytics graduate (UT Dallas, May 2026) with 3 shipped internships and 5 live AI/analytics products. Strong in multi agent systems, ML pipelines, and dashboards. Open to data analytics, AI/ML engineering, and business analytics roles. Responds fast.",
   caseLine:
-    "Ships production AI and analytics. Four platforms live. Three internships done.",
+    "Ships production AI and analytics. Five platforms live. Three internships done.",
   whyNow:
     "If you are hiring for analytics, ML, or AI engineering, I want in. I build things that stay up after deploy, not slide decks. Available to start the conversation today.",
   proof: [
+    {
+      id: "silicon-sentinel",
+      name: "SiliconSentinel",
+      hook: "Physics-grounded fleet reliability — 83% recall @ 80% precision",
+      url: "https://silicon-sentinel.vercel.app",
+    },
     {
       id: "diligence-ai",
       name: "Diligence AI",

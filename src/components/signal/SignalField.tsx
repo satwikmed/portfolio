@@ -7,9 +7,9 @@ const ASIDES = [
   "works on prod",
   "i ship",
   "unless you hire me first",
-  "four projects. one you.",
+  "five projects. one you.",
   "the thought is correct",
-  "4/4 online",
+  "5/5 online",
 ];
 
 function pickFragment() {

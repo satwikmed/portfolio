@@ -7,7 +7,7 @@ const words = [
   "WORKS ON PROD",
   "HIRE SATWIK",
   "SAY YES",
-  "4/4 ONLINE",
+  "5/5 ONLINE",
 ];
 
 export function Marquee() {
