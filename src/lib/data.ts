@@ -18,11 +18,11 @@ export const siteConfig = {
     filename: "Resume.pdf",
   },
   summary:
-    "MS Business Analytics graduate with 3 internships shipping production systems. Five deployed platforms with live URLs. Built reliability ML, multi agent AI products, NLP pipelines, and forecasting systems across silicon, finance, voice, and sports analytics.",
+    "MS Business Analytics graduate with 3 internships shipping production systems. Six deployed platforms with live URLs. Built reliability ML, multi agent AI products, NLP pipelines, and forecasting systems across silicon, finance, voice, and sports analytics.",
 };
 
 export const stats = [
-  { label: "Projects Online", value: "5/5", status: "online" as const },
+  { label: "Projects Online", value: "6/6", status: "online" as const },
   { label: "Internships", value: "3", status: "online" as const },
   { label: "Records Processed", value: "100K+", status: "online" as const },
   { label: "Agents Deployed", value: "6", status: "online" as const },
@@ -102,6 +102,25 @@ export const projects: Project[] = [
     featured: true,
     accent: "#4a1942",
     screenshot: "/projects/voiceiq.png",
+  },
+  {
+    id: "shapeshift",
+    name: "ShapeShift",
+    question: "When a pitcher reshapes a pitch, how do you know it actually helped?",
+    description:
+      "Baseball analytics research system for pitch-design interventions. Outcome-blind change detection, threshold frozen on 2024, locked 2025 matched event study, and Keep / Reshape / De-emphasize recommendations for Baseball Operations.",
+    highlights: [
+      "5.6M+ Statcast pitches in a reproducible DuckDB warehouse",
+      "Locked 2025 ATE +0.02 RV/100 — near-null aggregate effect",
+      "Featured Muñoz slider case at matched −0.29 RV/100",
+    ],
+    discipline: ["Data Science", "Sports Analytics", "Full-stack"],
+    stack: ["Python", "DuckDB", "scikit-learn", "Next.js", "Statcast"],
+    url: "https://web-bice-eta-18.vercel.app",
+    github: "https://github.com/satwikmed/shapeshift-baseball",
+    featured: true,
+    accent: "#8d1f2f",
+    screenshot: "/projects/shapeshift.png",
   },
   {
     id: "nfl-draft",
@@ -402,7 +421,7 @@ export const contactInquiries: ContactInquiry[] = [
     title: "Let's talk",
     meta: "Open to opportunities",
     blurb:
-      "If you are hiring for data analytics, AI/ML engineering, or business analytics, I want to hear about it. Five platforms live, three internships shipped, and I respond fast.",
+      "If you are hiring for data analytics, AI/ML engineering, or business analytics, I want to hear about it. Six platforms live, three internships shipped, and I respond fast.",
   },
 ];
 
@@ -417,12 +436,18 @@ export const recruiterMemo = {
   preface:
     "You made it to Recruiter Mode. Either someone forwarded you here, you pressed R on purpose, or the floating hire satwik text worked. This is the sane half. The other half is doing something weirder on purpose.",
   forwardBlurb:
-    "Satwik Medipalli is an MS Business Analytics graduate (UT Dallas, May 2026) with 3 shipped internships and 5 live AI/analytics products. Strong in multi agent systems, ML pipelines, and dashboards. Open to data analytics, AI/ML engineering, and business analytics roles. Responds fast.",
+    "Satwik Medipalli is an MS Business Analytics graduate (UT Dallas, May 2026) with 3 shipped internships and 6 live AI/analytics products. Strong in multi agent systems, ML pipelines, and dashboards. Open to data analytics, AI/ML engineering, and business analytics roles. Responds fast.",
   caseLine:
-    "Ships production AI and analytics. Five platforms live. Three internships done.",
+    "Ships production AI and analytics. Six platforms live. Three internships done.",
   whyNow:
     "If you are hiring for analytics, ML, or AI engineering, I want in. I build things that stay up after deploy, not slide decks. Available to start the conversation today.",
   proof: [
+    {
+      id: "shapeshift",
+      name: "ShapeShift",
+      hook: "Locked 2025 pitch intervention eval — near-null ATE, honest null",
+      url: "https://web-bice-eta-18.vercel.app",
+    },
     {
       id: "silicon-sentinel",
       name: "SiliconSentinel",
