@@ -14,7 +14,7 @@ export function CopyButton({ text, label = "Copy" }: { text: string; label?: str
         trackPortfolioEvent("copy_blurb");
         setTimeout(() => setCopied(false), 2000);
       }}
-      className="rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white transition-all hover:border-white/35 hover:bg-white/[0.09]"
+      className="rounded-full border border-[#1a1a1a]/20 bg-white/50 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[#1a1a1a] transition-all hover:border-[#3d5a47]/50 hover:bg-[#3d5a47]/[0.07]"
     >
       {copied ? "Copied ✓" : label}
     </button>

@@ -32,7 +32,7 @@ export function ProjectCard({
       onMouseMove={onMouseMove}
       style={
         {
-          "--card-accent": hexToRgba(project.accent, 0.16),
+          "--card-accent": hexToRgba(project.accent, 0.1),
         } as React.CSSProperties
       }
     >
@@ -44,7 +44,7 @@ export function ProjectCard({
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackPortfolioEvent("project_visit", { project: project.id })}
-          className={`relative block w-full overflow-hidden border-b border-white/[0.06] ${
+          className={`relative block w-full overflow-hidden border-b border-[#1a1a1a]/10 ${
             large ? "aspect-[16/9]" : "aspect-[16/8]"
           }`}
         >
@@ -55,7 +55,7 @@ export function ProjectCard({
             sizes={large ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 33vw, 100vw"}
             className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d15]/70 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/20 via-transparent to-transparent" />
           <span className="live-badge absolute left-4 top-4">
             <span className="live-dot" />
             Live
@@ -65,7 +65,7 @@ export function ProjectCard({
 
       <div className="relative z-10 flex flex-1 flex-col p-6 md:p-7">
         <div className="flex items-start justify-between gap-4">
-          <h3 className="font-display text-xl font-semibold text-white md:text-2xl">
+          <h3 className="font-display text-xl font-semibold text-[#1a1a1a] md:text-2xl">
             {project.name}
           </h3>
           <div className="flex shrink-0 items-center gap-3">
@@ -74,7 +74,7 @@ export function ProjectCard({
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#62626e] transition-colors hover:text-white"
+                className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#8f8c82] transition-colors hover:text-[#1a1a1a]"
                 onClick={() => trackPortfolioEvent("project_github", { project: project.id })}
               >
                 Code
@@ -84,7 +84,7 @@ export function ProjectCard({
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#7de8f7] transition-colors hover:text-white"
+              className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#3d5a47] transition-colors hover:text-[#1a1a1a]"
               onClick={() => trackPortfolioEvent("project_visit", { project: project.id })}
             >
               Visit ↗
@@ -99,7 +99,7 @@ export function ProjectCard({
           {project.metric}
         </p>
 
-        <p className="mt-3 text-sm leading-relaxed text-[#a0a0ae]">
+        <p className="mt-3 text-sm leading-relaxed text-[#5c5c5c]">
           {project.description}
         </p>
 
@@ -107,7 +107,7 @@ export function ProjectCard({
           {project.highlights.map((h) => (
             <li
               key={h}
-              className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[#c8c8d2]"
+              className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[#454545]"
             >
               <span
                 className="mt-[7px] h-1 w-1 shrink-0 rounded-full"

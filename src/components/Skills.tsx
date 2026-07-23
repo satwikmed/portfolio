@@ -17,10 +17,10 @@ export function Skills() {
         {skillGroups.map((group) => (
           <StaggerItem key={group.id} className="h-full">
             <div className="glass-card h-full p-6 md:p-7">
-              <h3 className="font-display text-lg font-semibold text-white">
+              <h3 className="font-display text-lg font-semibold text-[#1a1a1a]">
                 {group.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-[#a0a0ae]">
+              <p className="mt-2 text-sm leading-relaxed text-[#5c5c5c]">
                 {group.blurb}
               </p>
               <div className="mt-5 flex flex-wrap gap-1.5">

@@ -20,7 +20,7 @@ export function Navbar() {
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 md:h-[72px] md:px-10">
         <a
           href="#top"
-          className="font-display text-lg font-semibold tracking-tight text-white"
+          className="font-display text-lg font-semibold tracking-tight text-[#1a1a1a]"
         >
           {siteConfig.brand}
         </a>
@@ -35,7 +35,7 @@ export function Navbar() {
             href={siteConfig.resume.href}
             download={siteConfig.resume.filename}
             onClick={() => trackPortfolioEvent("resume_download", { from: "navbar" })}
-            className="rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-white transition-all hover:border-white/35 hover:bg-white/[0.09]"
+            className="rounded-full border border-[#1a1a1a]/20 bg-white/50 px-4 py-2 text-sm font-semibold text-[#1a1a1a] transition-all hover:border-[#3d5a47]/50 hover:bg-[#3d5a47]/[0.07]"
           >
             Resume
           </a>
@@ -47,16 +47,16 @@ export function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`h-px w-5 bg-white transition-transform ${open ? "translate-y-[3.5px] rotate-45" : ""}`}
+            className={`h-px w-5 bg-[#1a1a1a] transition-transform ${open ? "translate-y-[3.5px] rotate-45" : ""}`}
           />
           <span
-            className={`h-px w-5 bg-white transition-transform ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`}
+            className={`h-px w-5 bg-[#1a1a1a] transition-transform ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`}
           />
         </button>
       </nav>
 
       {open && (
-        <div className="border-t border-white/[0.07] bg-[#07070c]/95 px-6 py-6 backdrop-blur-xl md:hidden">
+        <div className="border-t border-[#1a1a1a]/10 bg-[#ebe8e1]/95 px-6 py-6 backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-5">
             {navLinks.map((link) => (
               <a

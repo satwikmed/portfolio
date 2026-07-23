@@ -31,12 +31,12 @@ export function RecruiterKit() {
       <Reveal delay={0.15}>
         <div className="glass-card mt-6 p-6 md:p-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#7de8f7]">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#3d5a47]">
               Forwardable summary
             </h3>
             <CopyButton text={recruiterKit.forwardBlurb} label="Copy summary" />
           </div>
-          <p className="mt-4 text-[15px] leading-relaxed text-[#c8c8d2]">
+          <p className="mt-4 text-[15px] leading-relaxed text-[#454545]">
             {recruiterKit.forwardBlurb}
           </p>
         </div>

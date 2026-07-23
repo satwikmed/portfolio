@@ -65,7 +65,7 @@ export const projects: Project[] = [
     url: "https://diligence-ai-nine.vercel.app",
     github: "https://github.com/satwikmed/diligence-ai",
     featured: true,
-    accent: "#6366f1",
+    accent: "#1e3a5f",
     screenshot: "/projects/diligence-ai-nine.png",
   },
   {
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     url: "https://voice-agent.vercel.app",
     github: "https://github.com/satwikmed/voice-agent",
     featured: true,
-    accent: "#a855f7",
+    accent: "#4a1942",
     screenshot: "/projects/voiceiq.png",
   },
   {
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     url: "https://silicon-sentinel.vercel.app",
     github: "https://github.com/satwikmed/silicon-sentinel",
     featured: true,
-    accent: "#06b6d4",
+    accent: "#0b6e74",
     screenshot: "/projects/silicon-sentinel.png",
   },
   {
@@ -122,7 +122,7 @@ export const projects: Project[] = [
     url: "https://web-bice-eta-18.vercel.app",
     github: "https://github.com/satwikmed/shapeshift-baseball",
     featured: true,
-    accent: "#f43f5e",
+    accent: "#8d1f2f",
     screenshot: "/projects/shapeshift.png",
   },
   {
@@ -140,7 +140,7 @@ export const projects: Project[] = [
     stack: ["XGBoost", "SHAP", "lifelines", "Next.js"],
     url: "https://nfl-draft-intelligence.vercel.app",
     github: "https://github.com/satwikmed/nfl-draft-intelligence",
-    accent: "#10b981",
+    accent: "#1a4d3e",
     screenshot: "/projects/nfl-draft.png",
   },
   {
@@ -158,7 +158,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "Python", "SQLite", "D3"],
     url: "https://nfl-edge.vercel.app",
     github: "https://github.com/satwikmed/nfl-edge",
-    accent: "#f59e0b",
+    accent: "#5c3d1e",
     screenshot: "/projects/nfl-edge.png",
   },
 ];

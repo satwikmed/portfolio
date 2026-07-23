@@ -26,7 +26,7 @@ export function ExperienceSection() {
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="flex items-center gap-4">
                     {job.logo && (
-                      <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-white/90 p-1">
+                      <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-[#1a1a1a]/10 bg-white/90 p-1">
                         <Image
                           src={job.logo}
                           alt={`${job.company} logo`}
@@ -37,22 +37,22 @@ export function ExperienceSection() {
                       </span>
                     )}
                     <div>
-                      <h3 className="font-display text-lg font-semibold text-white md:text-xl">
+                      <h3 className="font-display text-lg font-semibold text-[#1a1a1a] md:text-xl">
                         {job.role}
                       </h3>
-                      <p className="text-sm text-[#a0a0ae]">
+                      <p className="text-sm text-[#5c5c5c]">
                         {job.company}
                         {job.product ? ` · ${job.product}` : ""}
                       </p>
                     </div>
                   </div>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#62626e]">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#8f8c82]">
                     {job.period}
                   </span>
                 </div>
 
                 {job.context && (
-                  <p className="mt-4 text-sm leading-relaxed text-[#a0a0ae]">
+                  <p className="mt-4 text-sm leading-relaxed text-[#5c5c5c]">
                     {job.context}
                   </p>
                 )}
@@ -61,9 +61,9 @@ export function ExperienceSection() {
                   {job.bullets.map((b) => (
                     <li
                       key={b}
-                      className="flex items-start gap-2.5 text-sm leading-relaxed text-[#c8c8d2]"
+                      className="flex items-start gap-2.5 text-sm leading-relaxed text-[#454545]"
                     >
-                      <span className="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-[#22d3ee]" />
+                      <span className="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-[#d4a72c]" />
                       {b}
                     </li>
                   ))}
@@ -72,13 +72,13 @@ export function ExperienceSection() {
                 {job.phases && (
                   <details className="phases mt-6">
                     <summary>The full story</summary>
-                    <div className="mt-5 space-y-5 border-l border-white/10 pl-5">
+                    <div className="mt-5 space-y-5 border-l border-[#1a1a1a]/10 pl-5">
                       {job.phases.map((phase) => (
                         <div key={phase.title}>
-                          <h4 className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#818cf8]">
+                          <h4 className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#3d5a47]">
                             {phase.title}
                           </h4>
-                          <p className="mt-1.5 text-sm leading-relaxed text-[#a0a0ae]">
+                          <p className="mt-1.5 text-sm leading-relaxed text-[#5c5c5c]">
                             {phase.description}
                           </p>
                         </div>
@@ -98,7 +98,7 @@ export function ExperienceSection() {
                       href={job.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="chip chip-accent transition-colors hover:text-white"
+                      className="chip chip-accent transition-colors hover:text-[#1a1a1a]"
                     >
                       GitHub ↗
                     </a>
@@ -112,20 +112,20 @@ export function ExperienceSection() {
         <Reveal>
           <div className="relative">
             <div className="timeline-node -left-8 md:-left-12" />
-            <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/[0.07] bg-white/[0.02] px-6 py-5">
+            <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#1a1a1a]/10 bg-white/40 px-6 py-5">
               <div>
-                <h3 className="font-display text-base font-semibold text-white">
+                <h3 className="font-display text-base font-semibold text-[#1a1a1a]">
                   {education.degree}
                 </h3>
-                <p className="text-sm text-[#a0a0ae]">
+                <p className="text-sm text-[#5c5c5c]">
                   {education.school} · {education.location}
                 </p>
-                <p className="mt-1 text-xs text-[#62626e]">
+                <p className="mt-1 text-xs text-[#8f8c82]">
                   {education.prior.degree} — {education.prior.school},{" "}
                   {education.prior.period}
                 </p>
               </div>
-              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#62626e]">
+              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#8f8c82]">
                 {education.period}
               </span>
             </div>
