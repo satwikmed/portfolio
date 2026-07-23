@@ -2,6 +2,10 @@ import { siteConfig, stats } from "@/lib/data";
 import { Reveal, StaggerGroup, StaggerItem } from "./Reveal";
 import { StatCounter } from "./StatCounter";
 import { ResumeCta } from "./ResumeCta";
+import { SplitReveal } from "./fx/SplitReveal";
+import { WordCycler } from "./fx/WordCycler";
+import { Magnetic } from "./fx/Magnetic";
+import { Sparkles } from "./fx/Sparkles";
 
 const marqueeItems = [
   "LangGraph",
@@ -20,14 +24,41 @@ const marqueeItems = [
   "LLM-as-judge",
 ];
 
+const floatChips = [
+  { label: "83% recall @ 80% precision", cls: "float-a", pos: "right-[4%] top-[24%]" },
+  { label: "6 agents in production", cls: "float-b", pos: "right-[12%] top-[44%]" },
+  { label: "70 unit tests on the judge", cls: "float-a", pos: "right-[2%] top-[60%]" },
+];
+
 export function Hero() {
   return (
     <section id="top" className="relative min-h-screen overflow-hidden">
       <div className="aurora" />
       <div className="grid-overlay" />
       <div className="paper-grain" />
+      <Sparkles />
 
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-6 pb-24 pt-32 md:px-10">
+      {/* rotating conic ring */}
+      <div
+        className="hero-ring hidden lg:block"
+        style={{ width: 560, height: 560, right: "-6%", top: "14%" }}
+        aria-hidden
+      />
+
+      {/* floating proof chips */}
+      {floatChips.map((chip) => (
+        <div
+          key={chip.label}
+          className={`absolute ${chip.pos} ${chip.cls} z-10 hidden lg:block`}
+          aria-hidden
+        >
+          <span className="rounded-full border border-[#1a1a1a]/15 bg-white/70 px-4 py-2 font-mono text-[11px] text-[#3d5a47] shadow-[0_10px_30px_rgba(26,26,26,0.08)] backdrop-blur">
+            {chip.label}
+          </span>
+        </div>
+      ))}
+
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-6 pb-28 pt-32 md:px-10">
         <Reveal>
           <span className="live-badge">
             <span className="live-dot" />
@@ -35,31 +66,40 @@ export function Hero() {
           </span>
         </Reveal>
 
-        <Reveal delay={0.08}>
-          <h1 className="font-display mt-8 max-w-4xl text-[clamp(2.6rem,7vw,5.25rem)] font-semibold leading-[1.02] tracking-tight text-[#1a1a1a]">
-            I build AI systems
-            <br />
-            you can <span className="text-gradient">actually verify.</span>
-          </h1>
-        </Reveal>
+        <h1 className="font-display mt-8 max-w-4xl text-[clamp(2.7rem,7.5vw,5.75rem)] font-semibold leading-[1.02] tracking-tight text-[#1a1a1a]">
+          <SplitReveal text="I build AI systems" delay={0.1} as="div" />
+          <div className="flex flex-wrap items-baseline gap-x-4">
+            <SplitReveal text="you can" delay={0.35} as="span" />
+            <span className="squiggle">
+              <WordCycler
+                words={["verify.", "click.", "break.", "interrogate.", "ship."]}
+              />
+            </span>
+          </div>
+        </h1>
 
-        <Reveal delay={0.16}>
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-[#5c5c5c] md:text-xl">
-            {siteConfig.name} — {siteConfig.title}.{" "}
-            {siteConfig.subline}
+        <Reveal delay={0.55}>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[#5c5c5c] md:text-xl">
+            {siteConfig.name} — {siteConfig.title}. {siteConfig.subline}
           </p>
         </Reveal>
 
-        <Reveal delay={0.24}>
+        <Reveal delay={0.7}>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a href="#work" className="btn-primary">
-              See the work
-              <span aria-hidden>↓</span>
-            </a>
-            <ResumeCta />
-            <a href={`mailto:${siteConfig.email}`} className="btn-ghost">
-              Email me
-            </a>
+            <Magnetic>
+              <a href="#work" className="btn-primary">
+                See the work
+                <span aria-hidden>↓</span>
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <ResumeCta />
+            </Magnetic>
+            <Magnetic>
+              <a href={`mailto:${siteConfig.email}`} className="btn-ghost">
+                Email me
+              </a>
+            </Magnetic>
           </div>
         </Reveal>
 

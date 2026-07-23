@@ -3,8 +3,9 @@ import { Reveal, StaggerGroup, StaggerItem } from "./Reveal";
 
 export function Skills() {
   return (
-    <section id="skills" className="section">
+    <section id="skills" className="section relative">
       <Reveal>
+        <span className="ghost-num" aria-hidden>03</span>
         <span className="section-eyebrow">Toolkit</span>
         <h2 className="section-title">What I build with.</h2>
         <p className="section-sub">

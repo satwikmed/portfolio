@@ -5,10 +5,11 @@ import { ResumeCta } from "./ResumeCta";
 
 export function RecruiterKit() {
   return (
-    <section id="recruiters" className="section">
+    <section id="recruiters" className="section relative">
       <div className="divider-glow mb-24" />
 
       <Reveal>
+        <span className="ghost-num" aria-hidden>04</span>
         <span className="section-eyebrow">For Recruiters &amp; Hiring Managers</span>
         <h2 className="section-title">{recruiterKit.heading}</h2>
         <p className="section-sub">

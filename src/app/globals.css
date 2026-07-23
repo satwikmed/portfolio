@@ -322,3 +322,193 @@ details.phases[open] summary::before {
     scroll-behavior: auto;
   }
 }
+
+/* ============ DESIGNER LAYER ============ */
+
+/* ---- outlined display text ---- */
+.text-outline {
+  -webkit-text-stroke: 1.5px rgba(26, 26, 26, 0.22);
+  color: transparent;
+}
+
+.text-outline-olive {
+  -webkit-text-stroke: 1.5px rgba(61, 90, 71, 0.4);
+  color: transparent;
+}
+
+/* ---- ghost section numerals ---- */
+.ghost-num {
+  @apply pointer-events-none absolute -top-10 right-0 select-none font-display font-bold leading-none md:-top-16;
+  font-size: clamp(6rem, 18vw, 13rem);
+  -webkit-text-stroke: 1.5px rgba(61, 90, 71, 0.15);
+  color: transparent;
+  z-index: 0;
+}
+
+/* ---- squiggle underline ---- */
+.squiggle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8'%3E%3Cpath d='M0 4 Q 15 0, 30 4 T 60 4 T 90 4 T 120 4' fill='none' stroke='%23d4a72c' stroke-width='2.5'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 120px 8px;
+  padding-bottom: 10px;
+}
+
+/* ---- rotating conic ring ---- */
+.hero-ring {
+  position: absolute;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(61, 90, 71, 0) 0%,
+    rgba(61, 90, 71, 0.4) 25%,
+    rgba(212, 167, 44, 0.5) 50%,
+    rgba(61, 90, 71, 0) 75%
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), black calc(100% - 1px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), black calc(100% - 1px));
+  animation: ring-spin 14s linear infinite;
+}
+
+@keyframes ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- floating orbit chips ---- */
+@keyframes float-a {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+
+@keyframes float-b {
+  0%, 100% { transform: translateY(-8px) rotate(1.5deg); }
+  50% { transform: translateY(8px) rotate(-1.5deg); }
+}
+
+.float-a { animation: float-a 6s ease-in-out infinite; }
+.float-b { animation: float-b 7.5s ease-in-out infinite; }
+
+/* ---- sparkles ---- */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.7) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.15) rotate(20deg); }
+}
+
+.sparkle {
+  position: absolute;
+  color: #d4a72c;
+  animation: twinkle 3.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ---- custom cursor ---- */
+@media (pointer: fine) {
+  .cursor-dot,
+  .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    border-radius: 9999px;
+    z-index: 9999;
+  }
+
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: #3d5a47;
+  }
+
+  .cursor-ring {
+    width: 38px;
+    height: 38px;
+    border: 1.5px solid rgba(61, 90, 71, 0.45);
+    transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+  }
+
+  .cursor-ring.is-hovering {
+    width: 64px;
+    height: 64px;
+    border-color: rgba(212, 167, 44, 0.8);
+    background: rgba(212, 167, 44, 0.08);
+  }
+}
+
+/* ---- scroll progress ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform-origin: 0 50%;
+  background: linear-gradient(to right, #3d5a47, #d4a72c);
+  z-index: 60;
+}
+
+/* ---- giant footer marquee name ---- */
+.giant-name {
+  font-size: clamp(5rem, 16vw, 14rem);
+  line-height: 0.95;
+  -webkit-text-stroke: 2px rgba(61, 90, 71, 0.3);
+  color: transparent;
+  transition: color 0.5s ease;
+}
+
+.giant-name:hover {
+  color: rgba(61, 90, 71, 0.9);
+  -webkit-text-stroke: 2px transparent;
+}
+
+/* ---- project card 3d ---- */
+.tilt-wrap {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.tilt-inner {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ---- word cycler ---- */
+.cycler-mask {
+  display: inline-grid;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.cycler-mask > span {
+  grid-area: 1 / 1;
+}
+
+/* ---- diagonal marquee band ---- */
+.band {
+  transform: rotate(-2deg) scale(1.06);
+}
+
+.band-inner {
+  @apply flex w-max items-center gap-8 py-3;
+  animation: marquee 28s linear infinite;
+}
+
+.band-reverse .band-inner {
+  animation-direction: reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ring,
+  .float-a,
+  .float-b,
+  .sparkle,
+  .band-inner {
+    animation: none !important;
+  }
+
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}

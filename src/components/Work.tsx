@@ -7,8 +7,9 @@ export function Work() {
   const rest = projects.filter((p) => !p.featured);
 
   return (
-    <section id="work" className="section">
+    <section id="work" className="section relative">
       <Reveal>
+        <span className="ghost-num" aria-hidden>01</span>
         <span className="section-eyebrow">Deployed Work</span>
         <h2 className="section-title">
           Six products. Six public URLs.

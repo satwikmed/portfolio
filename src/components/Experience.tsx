@@ -4,8 +4,9 @@ import { Reveal } from "./Reveal";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="section">
+    <section id="experience" className="section relative">
       <Reveal>
+        <span className="ghost-num" aria-hidden>02</span>
         <span className="section-eyebrow">Experience</span>
         <h2 className="section-title">Where I learned to ship.</h2>
         <p className="section-sub">
