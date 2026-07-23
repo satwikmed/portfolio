@@ -1,101 +1,99 @@
-"use client";
+import { siteConfig, stats } from "@/lib/data";
+import { Reveal, StaggerGroup, StaggerItem } from "./Reveal";
+import { StatCounter } from "./StatCounter";
+import { ResumeCta } from "./ResumeCta";
 
-import Image from "next/image";
-import { FadeIn } from "./FadeIn";
-import { Marquee } from "./Marquee";
-import { ResumeDownload } from "./ResumeDownload";
-import { RedactionReveal } from "./signal/RedactionReveal";
-import { SignalField } from "./signal/SignalField";
-import { siteConfig } from "@/lib/data";
+const marqueeItems = [
+  "LangGraph",
+  "CrewAI",
+  "RAG",
+  "Pinecone",
+  "XGBoost",
+  "SHAP",
+  "Python",
+  "Next.js",
+  "FastAPI",
+  "Docker",
+  "RAGAS",
+  "DuckDB",
+  "Survival Analysis",
+  "LLM-as-judge",
+];
 
 export function Hero() {
-  const { heroImage } = siteConfig;
-
   return (
-    <section className="hero-signal relative flex min-h-screen items-center overflow-hidden px-6 pt-28 pb-20 md:px-10">
-      <div className="hypnosis-glow pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[min(90vw,640px)] w-[min(90vw,640px)] rounded-full" aria-hidden />
-      <SignalField />
-      <div className="paper-grain pointer-events-none absolute inset-0" aria-hidden />
-      <Marquee />
+    <section id="top" className="relative min-h-screen overflow-hidden">
+      <div className="aurora" />
+      <div className="grid-overlay" />
 
-      <p className="classified-stamp pointer-events-none absolute right-6 top-28 hidden font-mono text-[9px] uppercase tracking-[0.4em] text-[#3d5a47]/50 md:block">
-        hypnosis session · in progress
-      </p>
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-6 pb-24 pt-32 md:px-10">
+        <Reveal>
+          <span className="live-badge">
+            <span className="live-dot" />
+            {siteConfig.availability}
+          </span>
+        </Reveal>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1fr_0.85fr] lg:gap-16">
-        <div>
-          <FadeIn immediate>
-            <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#3d5a47]">
-              {siteConfig.title} · {siteConfig.location}
-            </p>
-          </FadeIn>
+        <Reveal delay={0.08}>
+          <h1 className="font-display mt-8 max-w-4xl text-[clamp(2.6rem,7vw,5.25rem)] font-semibold leading-[1.02] tracking-tight text-white">
+            I build AI systems
+            <br />
+            you can <span className="text-gradient">actually verify.</span>
+          </h1>
+        </Reveal>
 
-          <FadeIn delay={0.08} immediate>
-            <h1 className="mt-6 font-serif text-[clamp(2.25rem,6.5vw,4.5rem)] leading-[1.08] tracking-tight text-[#1a1a1a]">
-              Hi, I&apos;m {siteConfig.name.split(" ")[0]}.
-              <br />
-              <RedactionReveal delay={900}>
-                Six projects live. Still building.
-              </RedactionReveal>
-              <br />
-              <RedactionReveal delay={1400} className="italic text-[#3d5a47]">
-                Unless you&apos;d rather hire me first.
-              </RedactionReveal>
-            </h1>
-          </FadeIn>
+        <Reveal delay={0.16}>
+          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-[#a0a0ae] md:text-xl">
+            {siteConfig.name} — {siteConfig.title}.{" "}
+            {siteConfig.subline}
+          </p>
+        </Reveal>
 
-          <FadeIn delay={0.18} immediate>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a href="#experience" className="btn-primary">
-                pick a question
-              </a>
-              <ResumeDownload source="hero" />
-              <a
-                href={siteConfig.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-xs uppercase tracking-widest text-[#5c5c5c] underline decoration-[#d4a72c] decoration-2 underline-offset-4 transition-colors hover:text-[#1a1a1a]"
-              >
-                GitHub ↗
-              </a>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.28} immediate>
-            <p className="mt-8 max-w-md font-mono text-[10px] leading-relaxed tracking-wide text-[#5c5c5c]/80">
-              Follow the cursor. Recruiters: press{" "}
-              <kbd className="rounded border border-[#1a1a1a]/15 px-1.5 py-0.5 text-[#3d5a47]">
-                R
-              </kbd>{" "}
-              to snap out of it.
-            </p>
-          </FadeIn>
-        </div>
-
-        <FadeIn delay={0.12} immediate className="lg:block">
-          <div className="relative mx-auto aspect-[4/5] max-w-sm overflow-hidden rounded-sm border border-[#1a1a1a]/10 shadow-[6px_6px_0_0_rgba(26,26,26,0.08)] lg:max-w-none">
-            <Image
-              src={heroImage.src}
-              alt={heroImage.alt}
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 1024px) 90vw, 42vw"
-              quality={95}
-              priority
-            />
-            <div className="absolute inset-0 bg-[#3d5a47]/10 mix-blend-multiply" />
-            <p className="absolute bottom-4 left-4 right-4 font-serif text-lg italic leading-snug text-white drop-shadow-md md:text-xl">
-              {heroImage.caption}
-            </p>
+        <Reveal delay={0.24}>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a href="#work" className="btn-primary">
+              See the work
+              <span aria-hidden>↓</span>
+            </a>
+            <ResumeCta />
+            <a href={`mailto:${siteConfig.email}`} className="btn-ghost">
+              Email me
+            </a>
           </div>
-        </FadeIn>
+        </Reveal>
+
+        <StaggerGroup className="mt-20 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+          {stats.map((stat) => (
+            <StaggerItem key={stat.label}>
+              <div className="glass-card px-5 py-5 md:px-6 md:py-6">
+                <div className="font-display text-3xl font-semibold text-white md:text-4xl">
+                  <StatCounter
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    decimals={stat.decimals ?? 0}
+                  />
+                </div>
+                <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-[#a0a0ae]">
+                  {stat.label}
+                </div>
+                <div className="mt-1 text-xs text-[#62626e]">{stat.detail}</div>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerGroup>
       </div>
 
-      <div className="pointer-events-none absolute bottom-12 right-8 hidden items-center gap-3 md:flex">
-        <span className="hypnosis-scroll text-[10px] font-medium uppercase tracking-[0.25em] text-[#5c5c5c] [writing-mode:vertical-rl]">
-          Scroll
-        </span>
-        <div className="h-16 w-px bg-[#3d5a47]/30" />
+      <div className="marquee-mask absolute bottom-0 left-0 z-10 w-full overflow-hidden border-t border-white/[0.06] py-4">
+        <div className="animate-marquee flex w-max gap-10">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span
+              key={i}
+              className="font-mono text-xs uppercase tracking-[0.25em] text-[#62626e]"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,58 +1,39 @@
-"use client";
-
-import { useMemo } from "react";
-import { OfferStream } from "./inquiry/OfferStream";
-import type { InquiryItem } from "./inquiry/InquiryProvider";
-import { skillOffers } from "@/lib/data";
-
-function SkillDetail({ offer }: { offer: (typeof skillOffers)[number] }) {
-  return (
-    <>
-      <p>{offer.blurb}</p>
-      <div className="mt-6 flex flex-wrap gap-2">
-        {offer.skills.map((skill) => (
-          <span
-            key={skill}
-            className="rounded border border-[#3d5a47]/20 bg-[#3d5a47]/5 px-3 py-1.5 font-mono text-[11px] text-[#3d5a47]"
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
-    </>
-  );
-}
+import { skillGroups } from "@/lib/data";
+import { Reveal, StaggerGroup, StaggerItem } from "./Reveal";
 
 export function Skills() {
-  const items = useMemo<InquiryItem[]>(
-    () =>
-      skillOffers.map((offer) => ({
-        id: offer.id,
-        question: offer.prompt,
-        title: offer.title,
-        meta: offer.skills.slice(0, 3).join(" · "),
-        label: "You need",
-        drawerEyebrow: "I've got",
-        accent: "#3d5a47",
-        detail: <SkillDetail offer={offer} />,
-      })),
-    []
-  );
-
   return (
-    <OfferStream
-      sectionKey="skills"
-      sectionId="skills"
-      eyebrow="Tech stack"
-      intro="Different vibe here. You tell me what you are building. I show you the toolkit."
-      heading={
-        <>
-          What I
-          <br />
-          <span className="italic">reach for.</span>
-        </>
-      }
-      items={items}
-    />
+    <section id="skills" className="section">
+      <Reveal>
+        <span className="section-eyebrow">Toolkit</span>
+        <h2 className="section-title">What I build with.</h2>
+        <p className="section-sub">
+          Every tool here appears in at least one of the live projects above —
+          nothing listed that I haven&apos;t shipped with.
+        </p>
+      </Reveal>
+
+      <StaggerGroup className="mt-14 grid gap-5 md:grid-cols-2">
+        {skillGroups.map((group) => (
+          <StaggerItem key={group.id} className="h-full">
+            <div className="glass-card h-full p-6 md:p-7">
+              <h3 className="font-display text-lg font-semibold text-white">
+                {group.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#a0a0ae]">
+                {group.blurb}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-1.5">
+                {group.skills.map((skill) => (
+                  <span key={skill} className="chip">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </StaggerItem>
+        ))}
+      </StaggerGroup>
+    </section>
   );
 }

@@ -1,109 +1,58 @@
-"use client";
-
-import { ArrowUpRight } from "lucide-react";
-import { useMemo } from "react";
-import { InquiryStream } from "./inquiry/InquiryStream";
-import type { InquiryItem } from "./inquiry/InquiryProvider";
-import { contactInquiries, siteConfig } from "@/lib/data";
-import { trackPortfolioEvent } from "@/lib/analytics";
-import { BottomConfetti } from "./BottomConfetti";
-import { ResumeDownload } from "./ResumeDownload";
-
-function ContactDetail({ blurb }: { blurb: string }) {
-  return (
-    <>
-      <p>{blurb}</p>
-
-      <div className="drawer-actions">
-        <a
-          href={`mailto:${siteConfig.email}`}
-          className="btn-primary inline-block text-sm"
-          onClick={() => trackPortfolioEvent("contact_email", { source: "contact_drawer" })}
-        >
-          email me
-        </a>
-        <ResumeDownload className="btn-secondary inline-block text-sm" source="contact_drawer">
-          download resume
-        </ResumeDownload>
-      </div>
-
-      <div className="drawer-links">
-        <a
-          href={siteConfig.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex items-center gap-1.5"
-        >
-          LinkedIn
-          <ArrowUpRight
-            size={14}
-            className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-          />
-        </a>
-        <a
-          href={siteConfig.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex items-center gap-1.5"
-        >
-          GitHub
-          <ArrowUpRight
-            size={14}
-            className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-          />
-        </a>
-      </div>
-
-      <p className="drawer-meta pt-4 font-mono text-[10px] uppercase tracking-widest text-[#5c5c5c]">
-        {siteConfig.location} · {siteConfig.phone}
-      </p>
-    </>
-  );
-}
+import { siteConfig } from "@/lib/data";
+import { Reveal } from "./Reveal";
 
 export function Contact() {
-  const year = new Date().getFullYear();
-
-  const items = useMemo<InquiryItem[]>(
-    () =>
-      contactInquiries.map((entry) => ({
-        id: entry.id,
-        question: entry.question,
-        title: entry.title,
-        meta: entry.meta,
-        label: "Contact",
-        accent: "#d4a72c",
-        detail: <ContactDetail blurb={entry.blurb} />,
-      })),
-    []
-  );
-
   return (
-    <footer id="contact">
-      <InquiryStream
-        sectionKey="contact"
-        sectionId="contact"
-        eyebrow="Catch me"
-        intro="Last stop. Email me, grab the resume, or tap below."
-        heading={
-          <>
-            Want to
-            <br />
-            <span className="italic">work?</span>
-          </>
-        }
-        items={items}
-      />
-
-      <div className="border-t border-[#1a1a1a]/10 px-6 py-8 md:px-10">
-        <div className="mx-auto flex max-w-6xl items-center justify-between text-xs text-[#5c5c5c]">
-          <p>
-            © {year} {siteConfig.name}
+    <section id="contact" className="relative overflow-hidden">
+      <div className="aurora" />
+      <div className="section relative z-10 text-center">
+        <Reveal>
+          <span className="section-eyebrow">Contact</span>
+          <h2 className="font-display mx-auto mt-4 max-w-3xl text-[clamp(2.2rem,6vw,4rem)] font-semibold leading-[1.05] tracking-tight text-white">
+            The fastest way to evaluate me is to{" "}
+            <span className="text-gradient">talk to me.</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-lg text-[#a0a0ae]">
+            I reply the same day. Bring a hard problem — I&apos;ll bring a working
+            demo.
           </p>
-          <p>{siteConfig.location}</p>
-        </div>
-        <BottomConfetti />
+        </Reveal>
+
+        <Reveal delay={0.12}>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <a href={`mailto:${siteConfig.email}`} className="btn-primary">
+              {siteConfig.email}
+            </a>
+            <a
+              href={siteConfig.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              LinkedIn ↗
+            </a>
+            <a
+              href={siteConfig.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              GitHub ↗
+            </a>
+          </div>
+        </Reveal>
       </div>
-    </footer>
+
+      <footer className="relative z-10 border-t border-white/[0.06] px-6 py-8">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 text-xs text-[#62626e]">
+          <span>
+            © {new Date().getFullYear()} {siteConfig.name} · {siteConfig.location}
+          </span>
+          <span className="font-mono uppercase tracking-[0.2em]">
+            Built with Next.js · All six products live
+          </span>
+        </div>
+      </footer>
+    </section>
   );
 }
