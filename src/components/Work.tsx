@@ -1,15 +1,19 @@
 import { projects } from "@/lib/data";
 import { ProjectCard } from "./ProjectCard";
+import { FeaturedCase } from "./FeaturedCase";
 import { Reveal, StaggerGroup, StaggerItem } from "./Reveal";
 
 export function Work() {
-  const featured = projects.filter((p) => p.featured);
+  const [hero, ...restFeatured] = projects.filter((p) => p.featured);
   const rest = projects.filter((p) => !p.featured);
+  const grid = [...restFeatured, ...rest];
 
   return (
     <section id="work" className="section relative">
       <Reveal>
-        <span className="ghost-num" aria-hidden>01</span>
+        <span className="ghost-num" aria-hidden>
+          01
+        </span>
         <span className="section-eyebrow">Deployed Work</span>
         <h2 className="section-title">
           Six products. Six public URLs.
@@ -23,18 +27,16 @@ export function Work() {
         </p>
       </Reveal>
 
-      <StaggerGroup className="mt-14 grid gap-5 md:grid-cols-2">
-        {featured.map((project) => (
-          <StaggerItem key={project.id} className="h-full">
-            <ProjectCard project={project} large />
-          </StaggerItem>
-        ))}
-      </StaggerGroup>
+      {hero && (
+        <Reveal delay={0.1}>
+          <FeaturedCase project={hero} />
+        </Reveal>
+      )}
 
       <StaggerGroup className="mt-5 grid gap-5 md:grid-cols-2">
-        {rest.map((project) => (
+        {grid.map((project) => (
           <StaggerItem key={project.id} className="h-full">
-            <ProjectCard project={project} />
+            <ProjectCard project={project} large={project.featured} />
           </StaggerItem>
         ))}
       </StaggerGroup>

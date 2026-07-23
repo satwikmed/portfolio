@@ -557,3 +557,66 @@ details.phases[open] summary::before {
     transition: none !important;
   }
 }
+
+/* ---- Lenis ---- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* ---- Corentin-style nav mask ---- */
+.nav-mask-list {
+  position: relative;
+}
+
+.nav-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 9999px;
+  background: rgba(61, 90, 71, 0.1);
+  border: 1px solid rgba(61, 90, 71, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    width 0.35s cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    height 0.35s cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    opacity 0.25s ease;
+  will-change: transform, width, height;
+}
+
+/* ---- featured case ---- */
+.featured-case {
+  box-shadow: 0 40px 100px -40px rgba(26, 26, 26, 0.45);
+}
+
+/* ---- image reveal utility ---- */
+.reveal-clip {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ---- status rail under hero CTAs ---- */
+.status-rail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.status-rail kbd {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-mask {
+    transition: none !important;
+  }
+}

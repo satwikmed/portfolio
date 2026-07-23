@@ -46,6 +46,12 @@ export type Project = {
   featured?: boolean;
   accent: string;
   screenshot?: string;
+  caseStudy?: {
+    problem: string;
+    approach: string;
+    result: string;
+    decision: string;
+  };
 };
 
 export const projects: Project[] = [
@@ -67,6 +73,16 @@ export const projects: Project[] = [
     featured: true,
     accent: "#1e3a5f",
     screenshot: "/projects/diligence-ai-nine.png",
+    caseStudy: {
+      problem:
+        "A junior analyst's first pass on a 10-K takes days, and the output rarely cites where each number came from.",
+      approach:
+        "Six specialized agents split the work — extraction, risk classification, delta analysis, contradiction scanning, memo assembly — with Pinecone-backed RAG so every claim carries a citation.",
+      result:
+        "Upload a filing, get an analyst-grade memo in minutes. RAGAS scores answer faithfulness before anything ships.",
+      decision:
+        "Agents verify each other instead of trusting one big prompt — slower per run, but the output survives scrutiny.",
+    },
   },
   {
     id: "voiceiq",
@@ -86,6 +102,16 @@ export const projects: Project[] = [
     featured: true,
     accent: "#4a1942",
     screenshot: "/projects/voiceiq.png",
+    caseStudy: {
+      problem:
+        "Teams ship voice agents based on vibes — nobody can say whether the LLM judging the agent is itself trustworthy.",
+      approach:
+        "A two-LLM loop simulates callers across 10 scenario types, then the judge gets audited with Bland-Altman agreement analysis and Pearson/Spearman correlation against reference scores.",
+      result:
+        "A go/no-go signal you can defend in a meeting, backed by 70 unit tests and a pre-seeded demo database.",
+      decision:
+        "Calibrating the judge before trusting the scores — evaluation of the evaluator is the whole product.",
+    },
   },
   {
     id: "silicon-sentinel",
@@ -105,6 +131,16 @@ export const projects: Project[] = [
     featured: true,
     accent: "#0b6e74",
     screenshot: "/projects/silicon-sentinel.png",
+    caseStudy: {
+      problem:
+        "A GPU fleet fails silently — by the time a rack goes down, the warning signs were three weeks old.",
+      approach:
+        "Physics-grounded failure simulation (Arrhenius, Black, Peck, Coffin–Manson) across 12 sites feeds survival models and XGBoost remaining-useful-life scoring; an LLM analyst verifies every numeric claim it makes.",
+      result:
+        "83% recall at 80% precision on 30-day failure risk, surfaced in an ops console with a decision queue and SHAP deep dives.",
+      decision:
+        "Simulating from physics instead of scraping toy datasets — the failure modes are real even when the fleet is synthetic.",
+    },
   },
   {
     id: "shapeshift",
@@ -124,6 +160,16 @@ export const projects: Project[] = [
     featured: true,
     accent: "#8d1f2f",
     screenshot: "/projects/shapeshift.png",
+    caseStudy: {
+      problem:
+        "When a pitcher reshapes a pitch, front offices can't tell whether it actually helped or the season just got lucky.",
+      approach:
+        "Outcome-blind change detection with thresholds frozen on 2024 data, then a locked matched event study on 2025 — 5.6M Statcast pitches in a reproducible DuckDB warehouse.",
+      result:
+        "Keep / Reshape / De-emphasize recommendations, and an aggregate effect near zero (+0.02 RV/100) reported as exactly that.",
+      decision:
+        "Publishing the null result instead of torturing the data — decision-grade means honest, not exciting.",
+    },
   },
   {
     id: "nfl-draft",
@@ -374,6 +420,26 @@ export const education = {
   },
 };
 
+export const about = {
+  heading: "The human behind the URLs",
+  paragraphs: [
+    "Hi, I'm Satwik. I build AI systems, and I have a mildly obsessive rule about it: if it isn't deployed at a public URL, it doesn't count. Notebooks are where ideas go to feel productive. Everything on this page is live, clickable, and occasionally judged by an LLM that I also had to evaluate.",
+    "I got here through three internships — shipping NLP pipelines at a logistics company, forecasting systems at a product startup, and cloud ML infrastructure along the way — and then went deep during my M.S. at UT Dallas, where I built six products instead of collecting certificates. Multi-agent systems that read SEC filings, evaluation harnesses that audit other AIs, reliability models for GPU fleets, and enough sports analytics to ruin fantasy football for my friends.",
+    "What I actually care about is verifiability. Anyone can make a demo look smart. Making a system that cites its sources, reports its confidence, and admits when the answer is 'no effect detected' — that's the part I find fun. My agents cite their sources. I raised them right.",
+  ],
+  currently: [
+    { label: "Building", value: "Multi-agent systems that explain themselves" },
+    { label: "Reading", value: "Anthropic & OpenAI eval papers, so you don't have to" },
+    { label: "Open to", value: "AI/ML engineering & data roles — yes, right now" },
+    { label: "Fun fact", value: "5.6M pitches analyzed; my fastball remains theoretical" },
+  ],
+  photo: {
+    src: "/hero-view.jpg",
+    alt: "Mountain view from a hike",
+    caption: "Actual photo of me thinking about retrieval pipelines.",
+  },
+};
+
 export const recruiterKit = {
   heading: "The 30-second version",
   forwardBlurb:
@@ -390,6 +456,7 @@ export const recruiterKit = {
 
 export const navLinks = [
   { label: "Work", href: "#work" },
+  { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Recruiters", href: "#recruiters" },

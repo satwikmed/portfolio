@@ -9,10 +9,12 @@ import { Band } from "@/components/fx/Band";
 import { CustomCursor } from "@/components/fx/CustomCursor";
 import { ScrollProgress } from "@/components/fx/ScrollProgress";
 import { HireKey } from "@/components/fx/HireKey";
+import { SmoothScroll } from "@/components/fx/SmoothScroll";
 
 export default function Home() {
   return (
     <main>
+      <SmoothScroll />
       <CustomCursor />
       <ScrollProgress />
       <HireKey />
