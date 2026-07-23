@@ -11,6 +11,10 @@ const items = [
   "✦",
   "Ships same week",
   "✦",
+  "Yes, the links work",
+  "✦",
+  "No, this is not a template",
+  "✦",
 ];
 
 export function Band({ reverse = false }: { reverse?: boolean }) {

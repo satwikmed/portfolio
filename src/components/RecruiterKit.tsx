@@ -13,8 +13,9 @@ export function RecruiterKit() {
         <span className="section-eyebrow">For Recruiters &amp; Hiring Managers</span>
         <h2 className="section-title">{recruiterKit.heading}</h2>
         <p className="section-sub">
-          Everything you need to screen me, without hunting for it. Copy the
-          summary below straight into your ATS or a Slack message.
+          Everything you need to screen me, without hunting for it. I pre-wrote
+          the summary below so you can paste it into your ATS or Slack and go
+          get coffee instead.
         </p>
       </Reveal>
 

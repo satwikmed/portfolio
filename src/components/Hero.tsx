@@ -6,6 +6,7 @@ import { SplitReveal } from "./fx/SplitReveal";
 import { WordCycler } from "./fx/WordCycler";
 import { Magnetic } from "./fx/Magnetic";
 import { Sparkles } from "./fx/Sparkles";
+import { ParallaxY } from "./fx/Parallax";
 
 const marqueeItems = [
   "LangGraph",
@@ -46,16 +47,18 @@ export function Hero() {
       />
 
       {/* floating proof chips */}
-      {floatChips.map((chip) => (
-        <div
+      {floatChips.map((chip, i) => (
+        <ParallaxY
           key={chip.label}
-          className={`absolute ${chip.pos} ${chip.cls} z-10 hidden lg:block`}
-          aria-hidden
+          speed={-0.12 - i * 0.07}
+          className={`absolute ${chip.pos} z-10 hidden lg:block`}
         >
-          <span className="rounded-full border border-[#1a1a1a]/15 bg-white/70 px-4 py-2 font-mono text-[11px] text-[#3d5a47] shadow-[0_10px_30px_rgba(26,26,26,0.08)] backdrop-blur">
-            {chip.label}
-          </span>
-        </div>
+          <div className={chip.cls} aria-hidden>
+            <span className="rounded-full border border-[#1a1a1a]/15 bg-white/70 px-4 py-2 font-mono text-[11px] text-[#3d5a47] shadow-[0_10px_30px_rgba(26,26,26,0.08)] backdrop-blur">
+              {chip.label}
+            </span>
+          </div>
+        </ParallaxY>
       ))}
 
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-6 pb-28 pt-32 md:px-10">
@@ -101,6 +104,13 @@ export function Hero() {
               </a>
             </Magnetic>
           </div>
+          <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-[#8f8c82]">
+            No fake loading screens. No &quot;coming soon.&quot; In a hurry? Press{" "}
+            <kbd className="rounded border border-[#1a1a1a]/20 bg-white/60 px-1.5 py-0.5 text-[#3d5a47]">
+              H
+            </kbd>{" "}
+            to hire me.
+          </p>
         </Reveal>
 
         <StaggerGroup className="mt-20 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">

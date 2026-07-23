@@ -20,9 +20,19 @@ export function Navbar() {
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 md:h-[72px] md:px-10">
         <a
           href="#top"
-          className="font-display text-lg font-semibold tracking-tight text-[#1a1a1a]"
+          className="brand-wave font-display text-lg font-semibold tracking-tight text-[#1a1a1a]"
+          aria-label={siteConfig.brand}
         >
-          {siteConfig.brand}
+          {siteConfig.brand.split("").map((ch, i) => (
+            <span
+              key={i}
+              className="brand-letter"
+              style={{ transitionDelay: `${i * 30}ms` }}
+              aria-hidden
+            >
+              {ch}
+            </span>
+          ))}
         </a>
 
         <div className="hidden items-center gap-8 md:flex">

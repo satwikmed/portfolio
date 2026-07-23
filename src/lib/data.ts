@@ -27,10 +27,10 @@ export const siteConfig = {
 };
 
 export const stats = [
-  { label: "Products Live", value: 6, suffix: "/6", detail: "all URLs public" },
-  { label: "AI Agents in Production", value: 6, suffix: "", detail: "orchestrated pipelines" },
-  { label: "Records Modeled", value: 5.6, suffix: "M+", detail: "largest single dataset", decimals: 1 },
-  { label: "Internships Shipped", value: 3, suffix: "", detail: "NLP, ML, analytics" },
+  { label: "Products Live", value: 6, suffix: "/6", detail: "click them, I dare you" },
+  { label: "AI Agents in Production", value: 6, suffix: "", detail: "they cite their sources" },
+  { label: "Records Modeled", value: 5.6, suffix: "M+", detail: "the records survived", decimals: 1 },
+  { label: "Internships Shipped", value: 3, suffix: "", detail: "zero slide decks produced" },
 ];
 
 export type Project = {
@@ -308,7 +308,7 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "skills-agents",
     title: "LLM & Agents",
-    blurb: "Orchestration, retrieval, and evaluation — the stack behind Diligence AI and VoiceIQ.",
+    blurb: "Orchestration, retrieval, and evaluation. My agents cite their sources — I raised them right.",
     skills: [
       "LangChain",
       "LangGraph",
@@ -324,7 +324,7 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "skills-ml",
     title: "ML & Data Science",
-    blurb: "Forecasting, explainability, survival analysis — models that survive real data.",
+    blurb: "Forecasting, explainability, survival analysis. Models that survive contact with real data.",
     skills: [
       "XGBoost",
       "SHAP",
@@ -339,7 +339,7 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "skills-infra",
     title: "Engineering & Infra",
-    blurb: "The layer that turns notebooks into things people can actually use.",
+    blurb: "The layer that turns notebooks into things people can actually use. Python for ML, SQL when the truth lives in a database, TypeScript when it needs a face.",
     skills: [
       "Python",
       "SQL",
@@ -357,7 +357,7 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "skills-viz",
     title: "Analytics & BI",
-    blurb: "From raw records to a dashboard an executive actually reads.",
+    blurb: "From raw records to a dashboard an executive actually reads. R only when the stats homework fights back.",
     skills: ["Power BI", "Tableau", "Bold BI", "Streamlit", "Plotly", "D3"],
   },
 ];
@@ -381,10 +381,10 @@ export const recruiterKit = {
   facts: [
     { label: "Role targets", value: "AI Engineer · LLM/Agents · Data Science" },
     { label: "Location", value: "Richardson, TX (Dallas metro)" },
-    { label: "Start date", value: "Immediately" },
+    { label: "Start date", value: "Immediately. Suspiciously immediately." },
     { label: "Proof", value: "6 live products, all public URLs" },
     { label: "Education", value: "M.S. Business Analytics, UT Dallas, 2026" },
-    { label: "Response time", value: "Same day" },
+    { label: "Response time", value: "Same day. Often same hour." },
   ],
 };
 

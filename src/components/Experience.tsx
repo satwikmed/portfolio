@@ -12,6 +12,7 @@ export function ExperienceSection() {
         <p className="section-sub">
           Three internships across bioinformatics, enterprise data, and IoT
           analytics — each one ended with something running in production.
+          (The dashboards are still up. I checked.)
         </p>
       </Reveal>
 

@@ -8,12 +8,14 @@ import { Contact } from "@/components/Contact";
 import { Band } from "@/components/fx/Band";
 import { CustomCursor } from "@/components/fx/CustomCursor";
 import { ScrollProgress } from "@/components/fx/ScrollProgress";
+import { HireKey } from "@/components/fx/HireKey";
 
 export default function Home() {
   return (
     <main>
       <CustomCursor />
       <ScrollProgress />
+      <HireKey />
       <Navbar />
       <Hero />
       <Work />

@@ -21,6 +21,10 @@ export function Contact() {
             I reply the same day. Bring a hard problem — I&apos;ll bring a working
             demo.
           </p>
+          <p className="mx-auto mt-4 max-w-xl font-serif text-[15px] italic text-[#8f8c82]">
+            This is the peace you&apos;ll feel when you hire me. (The button below
+            opens an actual email. Revolutionary, I know.)
+          </p>
         </Reveal>
 
         <Reveal delay={0.12}>
@@ -73,7 +77,7 @@ export function Contact() {
             © {new Date().getFullYear()} {siteConfig.name} · {siteConfig.location}
           </span>
           <span className="font-mono uppercase tracking-[0.2em]">
-            Built with Next.js · All six products live
+            All six products live · Press H to hire · No LLMs left uncalibrated
           </span>
         </div>
       </footer>

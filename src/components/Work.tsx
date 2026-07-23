@@ -18,7 +18,8 @@ export function Work() {
         </h2>
         <p className="section-sub">
           Every project here is deployed and running right now — not a case study,
-          not a Figma file. Open them, break them, ask me how they work.
+          not a Figma file. Open them, break them, ask me how they work. If one
+          is ever down, email me and watch how fast it isn&apos;t.
         </p>
       </Reveal>
 

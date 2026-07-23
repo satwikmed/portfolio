@@ -10,7 +10,8 @@ export function Skills() {
         <h2 className="section-title">What I build with.</h2>
         <p className="section-sub">
           Every tool here appears in at least one of the live projects above —
-          nothing listed that I haven&apos;t shipped with.
+          nothing listed that I haven&apos;t shipped with. Padding a skills list
+          is a rookie move.
         </p>
       </Reveal>
 
