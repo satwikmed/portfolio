@@ -18,11 +18,11 @@ export const siteConfig = {
     filename: "Resume.pdf",
   },
   summary:
-    "MS Business Analytics graduate with 3 internships shipping production systems. Six deployed platforms with live URLs. Built reliability ML, multi agent AI products, NLP pipelines, and forecasting systems across silicon, finance, voice, and sports analytics.",
+    "MS Business Analytics graduate with 3 internships shipping production systems. Seven deployed platforms with live URLs. Built reliability ML, multi agent AI products, NLP pipelines, and forecasting systems across silicon, finance, voice, and sports analytics.",
 };
 
 export const stats = [
-  { label: "Projects Online", value: "6/6", status: "online" as const },
+  { label: "Projects Online", value: "7/7", status: "online" as const },
   { label: "Internships", value: "3", status: "online" as const },
   { label: "Records Processed", value: "100K+", status: "online" as const },
   { label: "Agents Deployed", value: "6", status: "online" as const },
@@ -45,6 +45,27 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: "lumen",
+    name: "Lumen",
+    question:
+      "Can you build a market terminal on public data that explains every number — and never invents one?",
+    description:
+      "S&P 500 research terminal in plain English. Live Yahoo last-sale quotes, SEC XBRL financials and filings, FRED macro, a quant risk lab with correlation and portfolio backtests, and an AI layer that is only allowed to narrate evidence the backend already computed.",
+    highlights: [
+      "503 names · risk lab, screener, backtest vs SPY, compare mode",
+      "SEC XBRL statements + 12 ratios; grounded filing AI with citations",
+      "Sources page that refuses Level-1 claims, synthetic filler, and invented odds",
+    ],
+    discipline: ["Full-stack", "Finance", "AI Engineering"],
+    stack: ["React", "FastAPI", "D3", "SEC EDGAR", "Yahoo", "FRED"],
+    url: "https://lumen-pi-nine.vercel.app",
+    github: "https://github.com/satwikmed/market-terminal",
+    featured: true,
+    span: "wide",
+    accent: "#b42318",
+    screenshot: "/projects/lumen.png",
+  },
   {
     id: "silicon-sentinel",
     name: "SiliconSentinel",
@@ -421,7 +442,7 @@ export const contactInquiries: ContactInquiry[] = [
     title: "Let's talk",
     meta: "Open to opportunities",
     blurb:
-      "If you are hiring for data analytics, AI/ML engineering, or business analytics, I want to hear about it. Six platforms live, three internships shipped, and I respond fast.",
+      "If you are hiring for data analytics, AI/ML engineering, or business analytics, I want to hear about it. Seven platforms live, three internships shipped, and I respond fast.",
   },
 ];
 
@@ -436,12 +457,18 @@ export const recruiterMemo = {
   preface:
     "You made it to Recruiter Mode. Either someone forwarded you here, you pressed R on purpose, or the floating hire satwik text worked. This is the sane half. The other half is doing something weirder on purpose.",
   forwardBlurb:
-    "Satwik Medipalli is an MS Business Analytics graduate (UT Dallas, May 2026) with 3 shipped internships and 6 live AI/analytics products. Strong in multi agent systems, ML pipelines, and dashboards. Open to data analytics, AI/ML engineering, and business analytics roles. Responds fast.",
+    "Satwik Medipalli is an MS Business Analytics graduate (UT Dallas, May 2026) with 3 shipped internships and 7 live AI/analytics products. Strong in multi agent systems, ML pipelines, market analytics, and dashboards. Open to data analytics, AI/ML engineering, and business analytics roles. Responds fast.",
   caseLine:
-    "Ships production AI and analytics. Six platforms live. Three internships done.",
+    "Ships production AI and analytics. Seven platforms live. Three internships done.",
   whyNow:
     "If you are hiring for analytics, ML, or AI engineering, I want in. I build things that stay up after deploy, not slide decks. Available to start the conversation today.",
   proof: [
+    {
+      id: "lumen",
+      name: "Lumen",
+      hook: "S&P 500 terminal — SEC XBRL, risk lab, backtests, grounded AI",
+      url: "https://lumen-pi-nine.vercel.app",
+    },
     {
       id: "shapeshift",
       name: "ShapeShift",
