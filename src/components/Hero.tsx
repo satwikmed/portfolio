@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { FadeIn } from "./FadeIn";
 import { Marquee } from "./Marquee";
-import { ResumeDownload } from "./ResumeDownload";
+import { ResumeDownloadPair } from "./ResumeDownload";
 import { RedactionReveal } from "./signal/RedactionReveal";
 import { SignalField } from "./signal/SignalField";
 import { siteConfig } from "@/lib/data";
@@ -35,7 +35,7 @@ export function Hero() {
               Hi, I&apos;m {siteConfig.name.split(" ")[0]}.
               <br />
               <RedactionReveal delay={900}>
-                Six projects live. Still building.
+                Seven projects live. Still building.
               </RedactionReveal>
               <br />
               <RedactionReveal delay={1400} className="italic text-[#3d5a47]">
@@ -49,7 +49,7 @@ export function Hero() {
               <a href="#experience" className="btn-primary">
                 pick a question
               </a>
-              <ResumeDownload source="hero" />
+              <ResumeDownloadPair source="hero" />
               <a
                 href={siteConfig.github}
                 target="_blank"

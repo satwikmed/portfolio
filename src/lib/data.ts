@@ -13,9 +13,17 @@ export const siteConfig = {
   phone: "945-544-2418",
   linkedin: "https://linkedin.com/in/medipalli-satwik",
   github: "https://github.com/satwikmed",
-  resume: {
-    href: "/Resume.pdf",
-    filename: "Resume.pdf",
+  resumes: {
+    data: {
+      href: "/Satwik_Medipalli_Data.pdf",
+      filename: "Satwik_Medipalli_Data.pdf",
+      label: "download me (Data version)",
+    },
+    ai: {
+      href: "/Satwik_Medipalli_AI_Engineer.pdf",
+      filename: "Satwik_Medipalli_AI_Engineer.pdf",
+      label: "download me (AI version)",
+    },
   },
   summary:
     "MS Business Analytics graduate with 3 internships shipping production systems. Seven deployed platforms with live URLs. Built reliability ML, multi agent AI products, NLP pipelines, and forecasting systems across silicon, finance, voice, and sports analytics.",
@@ -49,7 +57,7 @@ export const projects: Project[] = [
     id: "lumen",
     name: "Lumen",
     question:
-      "Can you build a market terminal on public data that explains every number — and never invents one?",
+      "Can you build a market terminal on public data that explains every number, and never invents one?",
     description:
       "S&P 500 research terminal in plain English. Live Yahoo last-sale quotes, SEC XBRL financials and filings, FRED macro, a quant risk lab with correlation and portfolio backtests, and an AI layer that is only allowed to narrate evidence the backend already computed.",
     highlights: [
@@ -74,7 +82,7 @@ export const projects: Project[] = [
       "Fleet reliability intelligence for semiconductor hardware. Physics-grounded failure simulation across 12 global sites, survival models, XGBoost remaining-life scoring, and an LLM analyst that verifies every numeric claim.",
     highlights: [
       "83% recall at 80% precision on 30-day failure risk",
-      "Arrhenius / Black / Peck / Coffin–Manson physics simulator",
+      "Arrhenius / Black / Peck / Coffin-Manson physics simulator",
       "Ops console with decision queue, war room, and SHAP deep dives",
     ],
     discipline: ["ML", "Data Science", "AI Engineering"],
@@ -132,7 +140,7 @@ export const projects: Project[] = [
       "Baseball analytics research system for pitch-design interventions. Outcome-blind change detection, threshold frozen on 2024, locked 2025 matched event study, and Keep / Reshape / De-emphasize recommendations for Baseball Operations.",
     highlights: [
       "5.6M+ Statcast pitches in a reproducible DuckDB warehouse",
-      "Locked 2025 ATE +0.02 RV/100 — near-null aggregate effect",
+      "Locked 2025 ATE +0.02 RV/100, near-null aggregate effect",
       "Featured Muñoz slider case at matched −0.29 RV/100",
     ],
     discipline: ["Data Science", "Sports Analytics", "Full-stack"],
@@ -206,7 +214,7 @@ export const experience: Experience[] = [
     id: "boltzmann-labs",
     company: "Boltzmann Labs",
     role: "AI Research Intern",
-    period: "Feb 2024 to Apr 2024",
+    period: "Jan 2024 to Apr 2024",
     question:
       "What if you could spot cancer signals in single cell data before they fully show up?",
     logo: "/logos/boltzmann.png",
@@ -258,8 +266,8 @@ export const experience: Experience[] = [
   {
     id: "bostonlogix",
     company: "Bostonlogix",
-    role: "Data & AI Intern",
-    period: "Sept 2023 to Dec 2023",
+    role: "Data Analytics Intern",
+    period: "Aug 2023 to Dec 2023",
     question:
       "How do you turn messy recipe sheets and millions of SQL rows into something a burger chain can actually use?",
     logo: "/logos/bostonlogix.png",
@@ -308,8 +316,8 @@ export const experience: Experience[] = [
   {
     id: "ideabytes",
     company: "Ideabytes",
-    role: "Data Analytics Intern",
-    period: "Apr 2023 to Jun 2023",
+    role: "BI Developer Intern",
+    period: "Apr 2023 to Jul 2023",
     question:
       "How do you monitor thousands of IoT devices across India and know which ones will fail next?",
     logo: "/logos/ideabytes.png",
@@ -466,19 +474,19 @@ export const recruiterMemo = {
     {
       id: "lumen",
       name: "Lumen",
-      hook: "S&P 500 terminal — SEC XBRL, risk lab, backtests, grounded AI",
+      hook: "S&P 500 terminal: SEC XBRL, risk lab, backtests, grounded AI",
       url: "https://lumen-pi-nine.vercel.app",
     },
     {
       id: "shapeshift",
       name: "ShapeShift",
-      hook: "Locked 2025 pitch intervention eval — near-null ATE, honest null",
+      hook: "Locked 2025 pitch intervention eval: near-null ATE, honest null",
       url: "https://web-bice-eta-18.vercel.app",
     },
     {
       id: "silicon-sentinel",
       name: "SiliconSentinel",
-      hook: "Physics-grounded fleet reliability — 83% recall @ 80% precision",
+      hook: "Physics-grounded fleet reliability: 83% recall @ 80% precision",
       url: "https://silicon-sentinel.vercel.app",
     },
     {

@@ -279,7 +279,7 @@ export function RecruiterBrief() {
                     <MemoLink href={item.url}>
                       <span className="font-medium">{item.name}</span>
                     </MemoLink>
-                    <span className="text-[#5c5c5c]"> — {item.hook}</span>
+                    <span className="text-[#5c5c5c]">: {item.hook}</span>
                   </motion.li>
                 ))}
               </motion.ul>
@@ -314,11 +314,20 @@ export function RecruiterBrief() {
                     email me
                   </a>,
                   <ResumeDownload
-                    key="resume"
+                    key="resume-data"
+                    kind="data"
                     className="btn-secondary text-sm"
                     source="recruiter_memo"
                   >
-                    download resume
+                    download resume (Data version)
+                  </ResumeDownload>,
+                  <ResumeDownload
+                    key="resume-ai"
+                    kind="ai"
+                    className="btn-secondary text-sm"
+                    source="recruiter_memo"
+                  >
+                    download resume (AI version)
                   </ResumeDownload>,
                   <MemoLink key="linkedin" href={siteConfig.linkedin}>
                     LinkedIn
