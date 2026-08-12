@@ -26,11 +26,11 @@ export const siteConfig = {
     },
   },
   summary:
-    "MS Business Analytics graduate with 3 internships shipping production systems. Seven deployed platforms with live URLs. Built reliability ML, multi agent AI products, NLP pipelines, and forecasting systems across silicon, finance, voice, and sports analytics.",
+    "MS Business Analytics graduate with 3 internships shipping production systems. Eight deployed platforms with live URLs. Built reliability ML, multi agent AI products, NLP pipelines, and forecasting systems across silicon, finance, voice, and sports analytics.",
 };
 
 export const stats = [
-  { label: "Projects Online", value: "7/7", status: "online" as const },
+  { label: "Projects Online", value: "8/8", status: "online" as const },
   { label: "Internships", value: "3", status: "online" as const },
   { label: "Records Processed", value: "100K+", status: "online" as const },
   { label: "Agents Deployed", value: "6", status: "online" as const },
@@ -53,6 +53,27 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: "sentinelai",
+    name: "SentinelAI",
+    question:
+      "Can you run GenAI through a real gateway — routing, guardrails, and evals — without trusting the model alone?",
+    description:
+      "Enterprise GenAI governance and orchestration gateway. LangGraph planner → router → executor with reflection, multi-provider routing across OpenAI / Anthropic / Gemini, Presidio PII and injection guardrails, audit + human review, eval CI gates, and a document intelligence copilot with citations.",
+    highlights: [
+      "Planner–executor + verifier reflection loop with inspectable run checkpoints",
+      "Input/output guardrails, audit log, and human-in-the-loop review queue",
+      "Eval suite in GitHub Actions + live Render API / Vercel UI (no credit card)",
+    ],
+    discipline: ["AI Engineering", "Full-stack", "MLOps"],
+    stack: ["LangGraph", "FastAPI", "React", "ChromaDB", "OpenTelemetry", "Docker"],
+    url: "https://sentinelai-ochre-six.vercel.app",
+    github: "https://github.com/satwikmed/SentinelAI",
+    featured: true,
+    span: "wide",
+    accent: "#1f4e79",
+    screenshot: "/projects/sentinelai.png",
+  },
   {
     id: "lumen",
     name: "Lumen",
@@ -383,7 +404,7 @@ export const skillOffers: SkillOffer[] = [
     prompt: "You want multi agent systems that cite their sources?",
     title: "AI & Agents",
     blurb:
-      "Orchestration, retrieval, and evaluation. Same stack behind Diligence AI and every agent pipeline I have shipped.",
+      "Orchestration, retrieval, and evaluation. Same stack behind SentinelAI, Diligence AI, and every agent pipeline I have shipped.",
     skills: [
       "LangChain",
       "LangGraph",
@@ -450,7 +471,7 @@ export const contactInquiries: ContactInquiry[] = [
     title: "Let's talk",
     meta: "Open to opportunities",
     blurb:
-      "If you are hiring for data analytics, AI/ML engineering, or business analytics, I want to hear about it. Seven platforms live, three internships shipped, and I respond fast.",
+      "If you are hiring for data analytics, AI/ML engineering, or business analytics, I want to hear about it. Eight platforms live, three internships shipped, and I respond fast.",
   },
 ];
 
@@ -465,12 +486,18 @@ export const recruiterMemo = {
   preface:
     "You made it to Recruiter Mode. Either someone forwarded you here, you pressed R on purpose, or the floating hire satwik text worked. This is the sane half. The other half is doing something weirder on purpose.",
   forwardBlurb:
-    "Satwik Medipalli is an MS Business Analytics graduate (UT Dallas, May 2026) with 3 shipped internships and 7 live AI/analytics products. Strong in multi agent systems, ML pipelines, market analytics, and dashboards. Open to data analytics, AI/ML engineering, and business analytics roles. Responds fast.",
+    "Satwik Medipalli is an MS Business Analytics graduate (UT Dallas, May 2026) with 3 shipped internships and 8 live AI/analytics products. Strong in multi agent systems, ML pipelines, market analytics, and dashboards. Open to data analytics, AI/ML engineering, and business analytics roles. Responds fast.",
   caseLine:
-    "Ships production AI and analytics. Seven platforms live. Three internships done.",
+    "Ships production AI and analytics. Eight platforms live. Three internships done.",
   whyNow:
     "If you are hiring for analytics, ML, or AI engineering, I want in. I build things that stay up after deploy, not slide decks. Available to start the conversation today.",
   proof: [
+    {
+      id: "sentinelai",
+      name: "SentinelAI",
+      hook: "GenAI gateway: LangGraph routing, guardrails, eval CI, live deploy",
+      url: "https://sentinelai-ochre-six.vercel.app",
+    },
     {
       id: "lumen",
       name: "Lumen",

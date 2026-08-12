@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const projects = [
+  { id: "sentinelai", url: "https://sentinelai-ochre-six.vercel.app" },
   { id: "shapeshift", url: "https://web-bice-eta-18.vercel.app" },
   { id: "diligence-ai", url: "https://diligence-ai-nine.vercel.app" },
   { id: "voiceiq", url: "https://voice-agent.vercel.app" },

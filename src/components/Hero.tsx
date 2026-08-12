@@ -35,7 +35,7 @@ export function Hero() {
               Hi, I&apos;m {siteConfig.name.split(" ")[0]}.
               <br />
               <RedactionReveal delay={900}>
-                Seven projects live. Still building.
+                Eight projects live. Still building.
               </RedactionReveal>
               <br />
               <RedactionReveal delay={1400} className="italic text-[#3d5a47]">
