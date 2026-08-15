@@ -68,7 +68,7 @@ export const projects: Project[] = [
     ],
     discipline: ["AI Engineering", "Full stack", "MLOps"],
     stack: ["LangGraph", "FastAPI", "React", "ChromaDB", "OpenTelemetry", "Docker"],
-    url: "https://sentinelai-ochre-six.vercel.app",
+    url: "https://sentinel.satwikmedipalli.dev",
     github: "https://github.com/satwikmed/SentinelAI",
     featured: true,
     span: "wide",
@@ -517,7 +517,7 @@ export const heroProof = [
     id: "sentinelai",
     name: "SentinelAI",
     hook: "GenAI gateway with routing, guardrails, and CI evals.",
-    url: "https://sentinelai-ochre-six.vercel.app",
+    url: "https://sentinel.satwikmedipalli.dev",
     screenshot: "/projects/sentinelai.png",
   },
 ];
@@ -564,7 +564,7 @@ export const recruiterMemo = {
       id: "sentinelai",
       name: "SentinelAI",
       hook: "GenAI gateway with routing, guardrails, CI evals",
-      url: "https://sentinelai-ochre-six.vercel.app",
+      url: "https://sentinel.satwikmedipalli.dev",
       screenshot: "/projects/sentinelai.png",
     },
     {
