@@ -1,8 +1,7 @@
 export const siteConfig = {
   name: "Satwik Medipalli",
   brand: "Satwik.",
-  title: "Analyst · Engineer · Builder",
-  tagline: "I ship production systems.",
+  title: "AI / LLM Engineer · Sports + Stocks Nerd",
   heroImage: {
     src: "/hero-view.jpg",
     alt: "Snow covered alpine peaks above a sea of clouds at sunrise",
@@ -13,6 +12,8 @@ export const siteConfig = {
   phone: "945 544 2418",
   linkedin: "https://linkedin.com/in/medipalli-satwik",
   github: "https://github.com/satwikmed",
+  calendarUrl: "https://cal.com/medipalli-satwik-6qoa0v/15min",
+  calendarLabel: "book 15 min with me →",
   resumes: {
     data: {
       href: "/Satwik_Medipalli_Data.pdf",
@@ -26,7 +27,7 @@ export const siteConfig = {
     },
   },
   summary:
-    "MS Business Analytics graduate with 3 internships shipping production systems. Eight deployed platforms with live URLs. Built reliability ML, multi agent AI products, NLP pipelines, and forecasting systems across silicon, finance, voice, and sports analytics.",
+    "UT Dallas MS Business Analytics (May 2026). Three internships, a UTD client project with DFW Technology, and 8 live AI/analytics products you can open: agents, RAG, eval, reliability ML, and terminals. Livingston, NJ. Open to work.",
 };
 
 export const stats = [
@@ -139,15 +140,15 @@ export const projects: Project[] = [
     name: "VoiceIQ",
     question: "How do you know your voice agent is actually ready to ship?",
     description:
-      "Calibrated testing harness for AI voice agents. Simulates caller conversations across six scenarios, scores with an LLM judge, and validates trust with Bland Altman calibration.",
+      "Calibrated testing harness for AI voice agents. Simulates caller conversations across nine scenarios, scores with an LLM judge, and validates trust with human calibration (MAE / Bland Altman).",
     highlights: [
-      "Two LLM conversation simulator",
-      "Bland Altman calibration system",
-      "70 unit tests, pre seeded demo data",
+      "9 scenarios with deploy gate at 90% pass rate (score ≥70)",
+      "Human-graded calibration (MAE 3.7, Bland Altman bias +2.8)",
+      "Turn-level evidence scoring across five dimensions",
     ],
     discipline: ["AI Engineering", "ML", "QA"],
     stack: ["Python", "Streamlit", "Next.js", "Ollama"],
-    url: "https://voice-agent.vercel.app",
+    url: "https://voice-agent-amber-nine.vercel.app",
     github: "https://github.com/satwikmed/VoiceIQ",
     featured: true,
     accent: "#4a1942",
@@ -232,6 +233,22 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
+    id: "dfw-technology",
+    company: "DFW Technology",
+    role: "AI Researcher (UTD Client Project)",
+    period: "Jan 2026 to May 2026",
+    question:
+      "When should a mid-market company run private AI or small models instead of defaulting to a full LLM?",
+    context:
+      "Semester-long UTD educational engagement on-site at DFW Technology. College-connected client project designed like real client work: research, write, and deliver recommendations the company could actually use.",
+    product: "Private AI + SLM playbooks",
+    bullets: [
+      "Authored Public vs Private AI: Scalable Business Agents for SMEs on architecture, governance, and compliance",
+      "Authored When to Use Small Language Models: A Strategic Playbook with a Unit of Work pilot measuring >90% inference-cost reduction vs LLM-only",
+    ],
+    stack: ["Private AI", "SLMs", "Cost modeling", "Governance"],
+  },
+  {
     id: "boltzmann-labs",
     company: "Boltzmann Labs",
     role: "AI Research Intern",
@@ -279,9 +296,8 @@ export const experience: Experience[] = [
     ],
     github: "https://github.com/satwikmed/Boltzmann-Labs",
     bullets: [
-      "Built single cell omics pipeline handling 500K+ records with QC, normalization, and differential analysis",
-      "Implemented GSEA, t test scoring, and S3 backed visualization exports",
-      "Containerized and deployed via Docker with boto3 AWS S3 integration",
+      "Built a multi-omic analysis pipeline over millions of records using clustering, differential expression, and GSEA to prioritize cancer-linked cell populations",
+      "Containerized and deployed with Docker, FastAPI, and Kubernetes, cutting researcher setup from hours to minutes",
     ],
   },
   {
@@ -290,31 +306,31 @@ export const experience: Experience[] = [
     role: "Data Analytics Intern",
     period: "Aug 2023 to Dec 2023",
     question:
-      "How do you turn messy recipe sheets and millions of SQL rows into something a burger chain can actually use?",
+      "How do you turn messy recipe sheets and millions of rows into something a burger chain can actually use?",
     logo: "/logos/bostonlogix.png",
     product: "Hungry Jack's",
     context:
-      "Bostonlogix was supporting Hungry Jack's, a major burger chain in Australia. I worked across NLP extraction, database migration, executive KPI reporting, and API cleanup for a high volume client data stack.",
+      "Bostonlogix was supporting Hungry Jack's, a major burger chain in Australia. I worked across database migration, executive KPI reporting, Azure OpenAI recipe extraction, and API test cleanup for a high volume client data stack.",
     phases: [
       {
-        title: "Recipe ingredient bot",
+        title: "MongoDB to SQL Server migration",
         description:
-          "First assignment: build a bot that reads full recipe sheets and returns structured ingredient lists with quantities. Example: a chicken burger entry becomes chicken breast 120g, brioche bun 1 piece, cheddar 40g, and so on. Shipped with both OpenAI and Azure OpenAI so the team could compare quality and cost.",
-      },
-      {
-        title: "SQL Server to MongoDB migration",
-        description:
-          "Client operations data lived in Microsoft SQL Server. The team wanted a more flexible document model, so I wrote migration jobs in SQL Server and Python to move recipes, ingredients, menu items, and store sales into MongoDB, then validated row counts table by table.",
+          "Migrated 1M+ Hungry Jack's records from MongoDB into SQL Server with Python so analytics could run on structured tables, then validated counts and joins.",
       },
       {
         title: "Bold BI KPI dashboards",
         description:
-          "After migration, we connected Bold BI to MongoDB and built executive KPI dashboards for the client. I owned the data plumbing and metric definitions that fed those views.",
+          "Built Bold BI dashboards on the structured data so the client could monitor KPIs without waiting on manual extracts.",
+      },
+      {
+        title: "Recipe ingredient bot",
+        description:
+          "Benchmarked Azure OpenAI against classical NLP for extracting ingredients and quantities from ~100K unstructured Hungry Jack's recipes. The team adopted the LLM path in production.",
       },
       {
         title: "API cleanup and inventory",
         description:
-          "Later I audited the company's large API surface: GET, POST, PUT, DELETE endpoints across menu, store, and ops services. Regression tested in Postman, aligned tests with Swagger/OpenAPI specs, and catalogued healthy endpoints for the team.",
+          "Diagnosed and fixed 100+ failing API test cases in Postman, added auth and daily scheduled runs, documented APIs in Swagger, and presented the regression suite for release testing.",
       },
     ],
     stack: [
@@ -329,9 +345,9 @@ export const experience: Experience[] = [
     ],
     github: "https://github.com/satwikmed/BostonLogix",
     bullets: [
-      "Built recipe ingredient extraction bot with OpenAI and Azure OpenAI",
-      "Migrated 1M+ records from SQL Server to MongoDB with validation",
-      "Regression tested 1000+ API endpoints via Postman and Swagger",
+      "Migrated 1M+ Hungry Jack's records from MongoDB to SQL Server and built Bold BI dashboards",
+      "Benchmarked Azure OpenAI vs classical NLP on 100K recipes; team adopted the LLM path in production",
+      "Fixed 100+ failing Postman API tests, added auth, daily runs, and Swagger docs",
     ],
   },
   {
@@ -369,7 +385,7 @@ export const experience: Experience[] = [
       {
         title: "ARIMA time series model",
         description:
-          "Upgraded to ARIMA for the same one year horizon. Captured seasonality and drift in device uptime more accurately, reaching roughly 92 to 95% accuracy on validation checks.",
+          "Upgraded to ARIMA for the same one year horizon to capture seasonality and drift in device performance, shifting maintenance planning from reactive to scheduled.",
       },
     ],
     stack: [
@@ -383,9 +399,8 @@ export const experience: Experience[] = [
     ],
     github: "https://github.com/satwikmed/Ideabytes",
     bullets: [
-      "Ingested 500K+ JSON sensor datapoints from IoT APIs into Power BI",
-      "Deployed Remote Monitoring System dashboard on the company website",
-      "ARIMA forecasting at 92 to 95% accuracy for proactive device maintenance",
+      "Built live Power BI dashboards from IoT JSON APIs for the CEO and company website",
+      "Forecasted one-year performance across 100+ IoT sensors with ARIMA in Python",
     ],
   },
 ];
@@ -404,7 +419,7 @@ export const skillOffers: SkillOffer[] = [
     prompt: "You want multi agent systems that cite their sources?",
     title: "AI & Agents",
     blurb:
-      "I like systems that cite their sources. Same stack behind SentinelAI, Diligence AI, and the other agent work I have shipped.",
+      "I like systems that cite their sources. Same stack behind SentinelAI, DiligenceAI, and the other agent work online.",
     skills: [
       "LangChain",
       "LangGraph",
@@ -433,7 +448,7 @@ export const skillOffers: SkillOffer[] = [
   },
   {
     id: "skills-infra",
-    prompt: "You need something that survives production?",
+    prompt: "You need something that stays up after you close the laptop?",
     title: "Infrastructure",
     blurb:
       "Containers, cloud storage, APIs, and databases. The layer that turns notebooks into things people can actually use.",
@@ -471,7 +486,7 @@ export const contactInquiries: ContactInquiry[] = [
     title: "Let's talk",
     meta: "Open to opportunities",
     blurb:
-      "If you are hiring for data analytics, AI engineering, or business analytics, I want to hear about it. Eight platforms live, three internships shipped, and I respond fast.",
+      "If you are hiring for AI/LLM, data science, or analytics, email me. Eight live products, three internships. I respond fast.",
   },
 ];
 
@@ -479,66 +494,85 @@ export const education = {
   school: "University of Texas at Dallas",
   degree: "MS Business Analytics",
   period: "May 2026",
-  location: "Livingston, NJ",
+  location: "Richardson, TX",
 };
+
+/** Three live demos shown under the hero so proof hits before the scroll. */
+export const heroProof = [
+  {
+    id: "lumen",
+    name: "Lumen",
+    hook: "S&P 500 terminal. Grounded AI that never invents a number.",
+    url: "https://lumen-pi-nine.vercel.app",
+    screenshot: "/projects/lumen.png",
+  },
+  {
+    id: "diligence-ai",
+    name: "DiligenceAI",
+    hook: "Six agents. Citation backed 10K diligence in minutes.",
+    url: "https://diligence-ai-nine.vercel.app",
+    screenshot: "/projects/diligence-ai-nine.png",
+  },
+  {
+    id: "sentinelai",
+    name: "SentinelAI",
+    hook: "GenAI gateway with routing, guardrails, and CI evals.",
+    url: "https://sentinelai-ochre-six.vercel.app",
+    screenshot: "/projects/sentinelai.png",
+  },
+];
 
 export const recruiterMemo = {
   preface:
-    "You made it to Recruiter Mode. Either someone forwarded you here, you pressed R on purpose, or the floating hire satwik text worked. This is the sane half. The other half is doing something weirder on purpose.",
+    "You made it to Recruiter Mode. Either someone forwarded you, you pressed R on purpose, or the floating HIRE SATWIK text finally broke you. This is the sane half. Explorer is where I get weird on purpose.",
   forwardBlurb:
-    "Satwik Medipalli is an MS Business Analytics graduate (UT Dallas, May 2026) with 3 shipped internships and 8 live AI analytics products. Strong in multi agent systems, ML pipelines, market analytics, and dashboards. Open to data analytics, AI engineering, and business analytics roles. Responds fast.",
+    "Satwik Medipalli. UT Dallas MS Business Analytics, Livingston NJ. 3 internships + UTD client project at DFW Technology + 8 live AI/analytics products (multiagent RAG, LLM eval, reliability ML, market terminals). Funny on purpose. Serious about the work. Open to AI/LLM Engineer and Data Scientist roles. Responds fast: sathwik.medipalli@gmail.com",
   caseLine:
-    "Ships production AI and analytics. Eight platforms live. Three internships done.",
+    "Eight live products. Three internships. One UTD client project. One sports + stocks nerd who wants the job.",
   whyNow:
-    "If you are hiring for analytics, ML, or AI engineering, I want in. I build things that stay up after deploy, not slide decks. Available to start the conversation today.",
+    "I finished my MS in Business Analytics at UT Dallas in May 2026. I'm looking for my first full time AI/LLM Engineer or Data Scientist role. The projects above are live if you want to check the work before we talk. I'm free to interview this week.",
   proof: [
-    {
-      id: "sentinelai",
-      name: "SentinelAI",
-      hook: "A GenAI gateway with routing, guardrails, and evals that run in CI",
-      url: "https://sentinelai-ochre-six.vercel.app",
-    },
     {
       id: "lumen",
       name: "Lumen",
       hook: "S&P 500 terminal: SEC XBRL, risk lab, backtests, grounded AI",
       url: "https://lumen-pi-nine.vercel.app",
-    },
-    {
-      id: "shapeshift",
-      name: "ShapeShift",
-      hook: "Locked 2025 pitch intervention eval with a near null ATE and an honest null",
-      url: "https://web-bice-eta-18.vercel.app",
-    },
-    {
-      id: "silicon-sentinel",
-      name: "SiliconSentinel",
-      hook: "Physics grounded fleet reliability with 83% recall at 80% precision",
-      url: "https://silicon-sentinel.vercel.app",
+      screenshot: "/projects/lumen.png",
     },
     {
       id: "diligence-ai",
-      name: "Diligence AI",
+      name: "DiligenceAI",
       hook: "6 agents, citation backed 10K analysis",
       url: "https://diligence-ai-nine.vercel.app",
-    },
-    {
-      id: "boltzmann-labs",
-      name: "Boltzmann Labs",
-      hook: "500K+ record single cell pipeline, Docker + S3",
-      url: "https://github.com/satwikmed/Boltzmann-Labs",
-    },
-    {
-      id: "ideabytes",
-      name: "Ideabytes",
-      hook: "IoT dashboard deployed on company site, 92 to 95% ARIMA forecast",
-      url: "https://github.com/satwikmed/Ideabytes",
+      screenshot: "/projects/diligence-ai-nine.png",
     },
     {
       id: "voiceiq",
       name: "VoiceIQ",
-      hook: "Voice agent eval harness with LLM judge + calibration",
-      url: "https://voice-agent.vercel.app",
+      hook: "LLM as judge voice agent eval + calibration",
+      url: "https://voice-agent-amber-nine.vercel.app",
+      screenshot: "/projects/voiceiq.png",
+    },
+    {
+      id: "silicon-sentinel",
+      name: "SiliconSentinel",
+      hook: "Fleet reliability ML at 83% recall and 80% precision",
+      url: "https://silicon-sentinel.vercel.app",
+      screenshot: "/projects/silicon-sentinel.png",
+    },
+    {
+      id: "sentinelai",
+      name: "SentinelAI",
+      hook: "GenAI gateway with routing, guardrails, CI evals",
+      url: "https://sentinelai-ochre-six.vercel.app",
+      screenshot: "/projects/sentinelai.png",
+    },
+    {
+      id: "shapeshift",
+      name: "ShapeShift",
+      hook: "Causal pitch redesign study on 5.6M+ Statcast pitches",
+      url: "https://web-bice-eta-18.vercel.app",
+      screenshot: "/projects/shapeshift.png",
     },
   ],
 };

@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 
 const palette = ["#3d5a47", "#d4a72c", "#1a1a1a", "#5c8a6e", "#c4922a"];
 
-function burst() {
+export function triggerBottomConfetti() {
   confetti({
     particleCount: 120,
     spread: 90,
@@ -40,30 +40,73 @@ function burst() {
   }, 200);
 }
 
+export function goToContactConfetti(
+  event?: { preventDefault: () => void }
+) {
+  event?.preventDefault();
+  const target = document.getElementById("contact");
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    window.location.hash = "#contact";
+  }
+  window.setTimeout(() => {
+    triggerBottomConfetti();
+    window.dispatchEvent(new Event("portfolio:confetti"));
+  }, 320);
+  if (window.history?.replaceState) {
+    window.history.replaceState(null, "", "#contact");
+  }
+}
+
 export function BottomConfetti() {
   const sentinelRef = useRef<HTMLDivElement>(null);
   const firedRef = useRef(false);
 
   useEffect(() => {
+    const fireOnce = () => {
+      if (firedRef.current) return;
+      firedRef.current = true;
+      triggerBottomConfetti();
+    };
+
     const el = sentinelRef.current;
-    if (!el) return;
+    const contact = document.getElementById("contact");
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const entry = entries[0];
-        if (!entry?.isIntersecting || firedRef.current) return;
-
-        firedRef.current = true;
-        burst();
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        fireOnce();
       },
       {
-        threshold: 0.4,
-        rootMargin: "0px 0px 0px 0px",
+        threshold: 0.15,
+        rootMargin: "0px 0px -10% 0px",
       }
     );
 
-    observer.observe(el);
-    return () => observer.disconnect();
+    if (el) observer.observe(el);
+    if (contact) observer.observe(contact);
+
+    const onHash = () => {
+      if (window.location.hash !== "#contact") return;
+      // Wait for scroll to settle, then celebrate.
+      window.setTimeout(fireOnce, 280);
+    };
+
+    const onForce = () => fireOnce();
+
+    window.addEventListener("hashchange", onHash);
+    window.addEventListener("portfolio:confetti", onForce);
+
+    if (window.location.hash === "#contact") {
+      window.setTimeout(fireOnce, 280);
+    }
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("hashchange", onHash);
+      window.removeEventListener("portfolio:confetti", onForce);
+    };
   }, []);
 
   return (

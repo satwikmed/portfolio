@@ -3,10 +3,14 @@
 import Image from "next/image";
 import { FadeIn } from "./FadeIn";
 import { Marquee } from "./Marquee";
-import { ResumeDownloadPair } from "./ResumeDownload";
 import { RedactionReveal } from "./signal/RedactionReveal";
-import { SignalField } from "./signal/SignalField";
 import { siteConfig } from "@/lib/data";
+import { goToContactConfetti } from "./BottomConfetti";
+import { BookCallButton } from "./BookCallButton";
+
+function goToConfetti(event: React.MouseEvent<HTMLAnchorElement>) {
+  goToContactConfetti(event);
+}
 
 export function Hero() {
   const { heroImage } = siteConfig;
@@ -14,13 +18,8 @@ export function Hero() {
   return (
     <section className="hero-signal relative flex min-h-screen items-center overflow-hidden px-6 pt-28 pb-20 md:px-10">
       <div className="hypnosis-glow pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[min(90vw,640px)] w-[min(90vw,640px)] rounded-full" aria-hidden />
-      <SignalField />
       <div className="paper-grain pointer-events-none absolute inset-0" aria-hidden />
       <Marquee />
-
-      <p className="classified-stamp pointer-events-none absolute right-6 top-28 hidden font-mono text-[9px] uppercase tracking-[0.4em] text-[#3d5a47]/50 md:block">
-        hypnosis session · in progress
-      </p>
 
       <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1fr_0.85fr] lg:gap-16">
         <div>
@@ -46,10 +45,13 @@ export function Hero() {
 
           <FadeIn delay={0.18} immediate>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a href="#experience" className="btn-primary">
+              <BookCallButton source="hero" />
+              <a href="#experience" className="btn-secondary">
                 pick a question
               </a>
-              <ResumeDownloadPair source="hero" />
+              <a href="#contact" className="btn-secondary" onClick={goToConfetti}>
+                skip to confetti →
+              </a>
               <a
                 href={siteConfig.github}
                 target="_blank"
@@ -62,12 +64,21 @@ export function Hero() {
           </FadeIn>
 
           <FadeIn delay={0.28} immediate>
-            <p className="mt-8 max-w-md font-mono text-[10px] leading-relaxed tracking-wide text-[#5c5c5c]/80">
-              Follow the cursor. Recruiters: press{" "}
+            <p className="mt-8 max-w-lg font-mono text-[10px] leading-relaxed tracking-wide text-[#5c5c5c]/80">
+              Nobody scrolls to the bottom. That&apos;s where the confetti is,
+              and my email.{" "}
+              <a
+                href="#contact"
+                onClick={goToConfetti}
+                className="text-[#3d5a47] underline decoration-[#3d5a47]/30 underline-offset-4 transition-colors hover:text-[#1a1a1a]"
+              >
+                Go claim it
+              </a>
+              . Recruiters: press{" "}
               <kbd className="rounded border border-[#1a1a1a]/15 px-1.5 py-0.5 text-[#3d5a47]">
                 R
               </kbd>{" "}
-              to snap out of it.
+              to snap out of Explorer.
             </p>
           </FadeIn>
         </div>
@@ -83,20 +94,25 @@ export function Hero() {
               quality={95}
               priority
             />
-            <div className="absolute inset-0 bg-[#3d5a47]/10 mix-blend-multiply" />
-            <p className="absolute bottom-4 left-4 right-4 font-serif text-lg italic leading-snug text-white drop-shadow-md md:text-xl">
-              {heroImage.caption}
-            </p>
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1a1a1a]/70 to-transparent px-5 pb-5 pt-16">
+              <p className="font-serif text-sm italic leading-snug text-white/95 md:text-base">
+                {heroImage.caption}
+              </p>
+            </div>
           </div>
         </FadeIn>
       </div>
 
-      <div className="pointer-events-none absolute bottom-12 right-8 hidden items-center gap-3 md:flex">
+      <a
+        href="#contact"
+        onClick={goToConfetti}
+        className="absolute bottom-8 right-6 z-10 hidden items-center gap-2 md:flex"
+        aria-label="Skip to contact and confetti"
+      >
         <span className="hypnosis-scroll text-[10px] font-medium uppercase tracking-[0.25em] text-[#5c5c5c] [writing-mode:vertical-rl]">
-          Scroll
+          Confetti ↓
         </span>
-        <div className="h-16 w-px bg-[#3d5a47]/30" />
-      </div>
+      </a>
     </section>
   );
 }

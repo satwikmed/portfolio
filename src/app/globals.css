@@ -79,6 +79,10 @@ body {
   animation: marquee 40s linear infinite;
 }
 
+.animate-marquee-slow {
+  animation: marquee 90s linear infinite;
+}
+
 .trust-link {
   @apply text-[#1a1a1a]/50 underline decoration-[#d4a72c]/0 decoration-2 underline-offset-4 transition-all hover:text-[#3d5a47] hover:decoration-[#d4a72c];
 }

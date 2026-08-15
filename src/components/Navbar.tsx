@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/data";
 import { ResumeDownloadPair } from "./ResumeDownload";
 import { ModeToggle } from "./mode/ModeToggle";
 import { useViewMode } from "./mode/ViewModeProvider";
+import { goToContactConfetti } from "./BottomConfetti";
 
 export function Navbar() {
   const { mode } = useViewMode();
@@ -38,10 +39,14 @@ export function Navbar() {
               <ResumeDownloadPair
                 className="nav-link hidden border-0 bg-transparent p-0 shadow-none hover:opacity-70 sm:inline"
                 source="navbar"
-                dataLabel="resume (Data version)"
-                aiLabel="resume (AI version)"
+                dataLabel="download me (Data version)"
+                aiLabel="download me (AI version)"
               />
-              <a href="#contact" className="nav-link hidden sm:inline">
+              <a
+                href="#contact"
+                className="nav-link hidden sm:inline"
+                onClick={goToContactConfetti}
+              >
                 get in touch
               </a>
             </>

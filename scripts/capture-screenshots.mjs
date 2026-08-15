@@ -9,7 +9,7 @@ const projects = [
   { id: "sentinelai", url: "https://sentinelai-ochre-six.vercel.app" },
   { id: "shapeshift", url: "https://web-bice-eta-18.vercel.app" },
   { id: "diligence-ai", url: "https://diligence-ai-nine.vercel.app" },
-  { id: "voiceiq", url: "https://voice-agent.vercel.app" },
+  { id: "voiceiq", url: "https://voice-agent-amber-nine.vercel.app" },
   { id: "nfl-draft", url: "https://nfl-draft-intelligence.vercel.app" },
   { id: "nfl-edge", url: "https://nfl-edge.vercel.app" },
 ];

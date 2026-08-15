@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: siteConfig.summary,
   openGraph: {
     title: `${siteConfig.name} | ${siteConfig.title}`,
-    description: siteConfig.tagline,
+    description: siteConfig.summary,
     type: "website",
   },
 };

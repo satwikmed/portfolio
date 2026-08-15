@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 import {
   education,
@@ -13,6 +14,7 @@ import {
 } from "@/lib/data";
 import { trackPortfolioEvent } from "@/lib/analytics";
 import { ResumeDownload } from "../ResumeDownload";
+import { BookCallButton } from "../BookCallButton";
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
@@ -252,7 +254,7 @@ export function RecruiterBrief() {
 
           <MemoReveal inView>
             <section className="memo-block">
-              <h2 className="memo-label">Proof (pick any)</h2>
+              <h2 className="memo-label">Proof (click any)</h2>
               <motion.ul
                 className="memo-proof-list"
                 initial={reduceMotion ? false : "hidden"}
@@ -275,11 +277,30 @@ export function RecruiterBrief() {
                       },
                     }}
                     whileHover={reduceMotion ? undefined : { x: 4 }}
+                    className="flex gap-4"
                   >
-                    <MemoLink href={item.url}>
-                      <span className="font-medium">{item.name}</span>
-                    </MemoLink>
-                    <span className="text-[#5c5c5c]">: {item.hook}</span>
+                    {"screenshot" in item && item.screenshot ? (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative mt-0.5 hidden h-14 w-20 shrink-0 overflow-hidden rounded-sm border border-[#1a1a1a]/10 sm:block"
+                      >
+                        <Image
+                          src={item.screenshot}
+                          alt=""
+                          fill
+                          className="object-cover object-top"
+                          sizes="80px"
+                        />
+                      </a>
+                    ) : null}
+                    <div>
+                      <MemoLink href={item.url}>
+                        <span className="font-medium">{item.name}</span>
+                      </MemoLink>
+                      <span className="text-[#5c5c5c]">: {item.hook}</span>
+                    </div>
                   </motion.li>
                 ))}
               </motion.ul>
@@ -290,7 +311,7 @@ export function RecruiterBrief() {
             <section className="memo-block">
               <h2 className="memo-label">What I need from you</h2>
               <p className="memo-body">
-                A reply, a call, or an interview slot. I respond fast.
+                If you like what you see, grab 15 minutes. Or email me. I respond fast.
               </p>
               <motion.div
                 className="mt-6 flex flex-wrap gap-3"
@@ -303,10 +324,15 @@ export function RecruiterBrief() {
                 }}
               >
                 {[
+                  <BookCallButton
+                    key="book"
+                    className="btn-primary text-sm"
+                    source="recruiter_memo"
+                  />,
                   <a
                     key="email"
                     href={`mailto:${siteConfig.email}`}
-                    className="btn-primary text-sm"
+                    className="btn-secondary text-sm"
                     onClick={() =>
                       trackPortfolioEvent("contact_email", { source: "recruiter_memo" })
                     }

@@ -8,6 +8,7 @@ import { contactInquiries, siteConfig } from "@/lib/data";
 import { trackPortfolioEvent } from "@/lib/analytics";
 import { BottomConfetti } from "./BottomConfetti";
 import { ResumeDownloadPair } from "./ResumeDownload";
+import { BookCallButton } from "./BookCallButton";
 
 function ContactDetail({ blurb }: { blurb: string }) {
   return (
@@ -15,9 +16,13 @@ function ContactDetail({ blurb }: { blurb: string }) {
       <p>{blurb}</p>
 
       <div className="drawer-actions">
+        <BookCallButton
+          className="btn-primary inline-block text-sm"
+          source="contact_drawer"
+        />
         <a
           href={`mailto:${siteConfig.email}`}
-          className="btn-primary inline-block text-sm"
+          className="btn-secondary inline-block text-sm"
           onClick={() => trackPortfolioEvent("contact_email", { source: "contact_drawer" })}
         >
           email me
@@ -58,7 +63,7 @@ function ContactDetail({ blurb }: { blurb: string }) {
       </div>
 
       <p className="drawer-meta pt-4 font-mono text-[10px] uppercase tracking-widest text-[#5c5c5c]">
-        {siteConfig.location} · {siteConfig.phone}
+        {siteConfig.phone}
       </p>
     </>
   );

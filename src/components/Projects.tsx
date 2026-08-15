@@ -101,7 +101,7 @@ export function Projects() {
         <>
           Problems I
           <br />
-          <span className="italic">shipped.</span>
+          <span className="italic">put online.</span>
         </>
       }
       items={items}
