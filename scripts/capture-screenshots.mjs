@@ -7,11 +7,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const projects = [
   { id: "sentinelai", url: "https://sentinelai-ochre-six.vercel.app" },
-  { id: "shapeshift", url: "https://web-bice-eta-18.vercel.app" },
-  { id: "diligence-ai", url: "https://diligence-ai-nine.vercel.app" },
-  { id: "voiceiq", url: "https://voice-agent-amber-nine.vercel.app" },
-  { id: "nfl-draft", url: "https://nfl-draft-intelligence.vercel.app" },
+  { id: "shapeshift", url: "https://shapeshift.satwikmedipalli.dev" },
+  { id: "diligence-ai", url: "https://diligence.satwikmedipalli.dev" },
+  { id: "voiceiq", url: "https://voiceiq.satwikmedipalli.dev" },
+  { id: "nfl-draft", url: "https://draft.satwikmedipalli.dev" },
   { id: "nfl-edge", url: "https://nfl-edge.vercel.app" },
+  { id: "lumen", url: "https://lumen.satwikmedipalli.dev" },
+  { id: "silicon-sentinel", url: "https://silicon.satwikmedipalli.dev" },
 ];
 
 const outDir = path.join(__dirname, "../public/projects");
@@ -28,26 +30,14 @@ async function capture() {
   for (const project of projects) {
     const page = await context.newPage();
     console.log(`Capturing ${project.id}...`);
-
     try {
-      await page.goto(project.url, {
-        waitUntil: "networkidle",
-        timeout: 60000,
-      });
-      await page.waitForTimeout(2500);
-
-      const filename =
-        project.id === "diligence-ai"
-          ? "diligence-ai-nine.png"
-          : `${project.id}.png`;
-
-      await page.screenshot({
-        path: path.join(outDir, filename),
-        type: "png",
-      });
-      console.log(`  ✓ ${project.id}.png`);
+      await page.goto(project.url, { waitUntil: "networkidle", timeout: 60000 });
+      await page.waitForTimeout(2000);
+      const out = path.join(outDir, `${project.id}.png`);
+      await page.screenshot({ path: out, fullPage: false });
+      console.log(`Saved ${out}`);
     } catch (err) {
-      console.error(`  ✗ ${project.id}:`, err.message);
+      console.error(`Failed ${project.id}:`, err.message);
     } finally {
       await page.close();
     }
