@@ -8,7 +8,7 @@ export const siteConfig = {
     alt: "Snow covered alpine peaks above a sea of clouds at sunrise",
     caption: "This is the peace you'll feel when you hire me.",
   },
-  location: "Richardson, TX",
+  location: "Livingston, NJ",
   email: "sathwik.medipalli@gmail.com",
   phone: "945 544 2418",
   linkedin: "https://linkedin.com/in/medipalli-satwik",
@@ -479,7 +479,7 @@ export const education = {
   school: "University of Texas at Dallas",
   degree: "MS Business Analytics",
   period: "May 2026",
-  location: "Richardson, TX",
+  location: "Livingston, NJ",
 };
 
 export const recruiterMemo = {
